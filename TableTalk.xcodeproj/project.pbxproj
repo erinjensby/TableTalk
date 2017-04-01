@@ -22,6 +22,7 @@
 		0176EDD01E6E5D5800365D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0176EDCE1E6E5D5800365D72 /* LaunchScreen.storyboard */; };
 		0176EDD81E6E696700365D72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0176EDD71E6E696700365D72 /* GoogleService-Info.plist */; };
 		30EE9E2148CFBCE7E36358EE /* Pods_TableTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053AAF587B0F3B9506A1C991 /* Pods_TableTalk.framework */; };
+		8EBF503D1E9054BD000A1D93 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF503C1E9054BD000A1D93 /* LocationListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		0176EDD11E6E5D5800365D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0176EDD71E6E696700365D72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		053AAF587B0F3B9506A1C991 /* Pods_TableTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EBF503C1E9054BD000A1D93 /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		A4C4D79981C1E22479D3A420 /* Pods-TableTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableTalk/Pods-TableTalk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 				0176EDCE1E6E5D5800365D72 /* LaunchScreen.storyboard */,
 				0176EDD11E6E5D5800365D72 /* Info.plist */,
 				0176EDD71E6E696700365D72 /* GoogleService-Info.plist */,
+				8EBF503C1E9054BD000A1D93 /* LocationListViewController.swift */,
 			);
 			path = TableTalk;
 			sourceTree = "<group>";
@@ -158,7 +161,6 @@
 				TargetAttributes = {
 					0176EDC11E6E5D5800365D72 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = G3QAPTHGAA;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -251,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0176EDC81E6E5D5800365D72 /* ViewController.swift in Sources */,
+				8EBF503D1E9054BD000A1D93 /* LocationListViewController.swift in Sources */,
 				01624B8D1E849156005B9AE4 /* ViewController2.swift in Sources */,
 				01624B8B1E849156005B9AE4 /* MapView.swift in Sources */,
 				01624B891E849156005B9AE4 /* LocationDetails.swift in Sources */,
@@ -379,7 +382,7 @@
 			baseConfigurationReference = 014A69988EC351FE68AA4248 /* Pods-TableTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G3QAPTHGAA;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TableTalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dh.TableTalk;
@@ -393,7 +396,7 @@
 			baseConfigurationReference = A4C4D79981C1E22479D3A420 /* Pods-TableTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G3QAPTHGAA;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TableTalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dh.TableTalk;
