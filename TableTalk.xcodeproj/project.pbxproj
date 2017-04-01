@@ -158,7 +158,7 @@
 				TargetAttributes = {
 					0176EDC11E6E5D5800365D72 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = G3QAPTHGAA;
+						DevelopmentTeam = R4WTTEWA23;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -379,7 +379,7 @@
 			baseConfigurationReference = 014A69988EC351FE68AA4248 /* Pods-TableTalk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G3QAPTHGAA;
+				DEVELOPMENT_TEAM = R4WTTEWA23;
 				INFOPLIST_FILE = TableTalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dh.TableTalk;
@@ -393,7 +393,7 @@
 			baseConfigurationReference = A4C4D79981C1E22479D3A420 /* Pods-TableTalk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = G3QAPTHGAA;
+				DEVELOPMENT_TEAM = R4WTTEWA23;
 				INFOPLIST_FILE = TableTalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dh.TableTalk;

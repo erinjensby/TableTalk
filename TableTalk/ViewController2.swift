@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class ViewController2: UIViewController {
+    
+    var placesClient: GMSPlacesClient!
 
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var numTablesLbl: UILabel!
@@ -70,6 +73,23 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Code from Google Places API Guide
+        placesClient = GMSPlacesClient.shared()
+        
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            if let placeLikelihoodList = placeLikelihoodList {
+                let place = placeLikelihoodList.likelihoods.first?.place
+                if let place = place {
+                    self.locationLbl.text = place.name
+                }
+            }
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
