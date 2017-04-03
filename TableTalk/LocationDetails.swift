@@ -27,6 +27,16 @@ class LocationDetails: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func setNames(names:[String]) {
+        self.names = names
         locNameLbl.text = names[0]
         hrsLbl.text = names[1]
         phoneLbl.text = names[2]
@@ -37,11 +47,5 @@ class LocationDetails: UIViewController {
         noiseLvl.text = names[6]
         tempLbl.text = names[7]
         tableNum.text = names[8]
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

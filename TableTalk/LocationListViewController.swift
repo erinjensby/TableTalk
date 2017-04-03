@@ -36,24 +36,36 @@ class LocationListViewController: UIViewController{
         self.categoryPicker.dataSource = self
         self.categoryPicker.isHidden = true
         self.listCategory.text = "Distance"
-        self.categoryPicker.frame.origin.y -= 100
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "locDesc" {
+            
+            if let destinationVC = segue.destination as? LocationDetails {
+                var names:[String] = [String]()
+                names.append("Epoch Coffee")
+                names.append("24 / 7")
+                names.append("(512) 454-3762")
+                names.append("221 W N Loop Blvd Austin, TX 78751")
+                names.append("epochcoffee.com")
+                names.append("24/7 coffee shop vending espresso drinks, sweets & pizza from East Side Pies in open, casual space.")
+                
+                names.append("3.6")
+                names.append("7.4")
+                names.append("5.8")
+                destinationVC.setNames(names: names)
+            }
+        }
     }
-    */
 
 }
 
@@ -73,6 +85,8 @@ extension LocationListViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.listCategory.text = self.categoryList[row]
+        self.categoryPicker.isHidden = true
+        self.tableView.reloadData()
 //        UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveLinear,
 //                       animations: {
 //                        self.categoryPicker.frame.origin.y += 100
@@ -80,7 +94,6 @@ extension LocationListViewController: UIPickerViewDelegate, UIPickerViewDataSour
 //                        frame.origin.y -= 100
 //                        self.tableView.frame = frame
 //        }, completion: nil)
-        self.categoryPicker.isHidden = true
 //        var frame = self.tableView.frame
 //        frame.origin.y -= 100
 //        self.tableView.frame = frame
@@ -134,12 +147,8 @@ extension LocationListViewController: UITableViewDelegate, UITableViewDataSource
         
         // Configure the cell...
         if indexPath.row == 0 {
-//            cell?.locationLabel?.text = "HI"
-//            cell?.locationLabel.text = "Epoch Coffee"
-//            cell?.addrLabel.text = "211 W North Loop Blvd, Austin"
-//            cell?.distLabel.text = "1.2 mi"
             cell?.locationLabel?.text = "Epoch Coffee"
-            cell?.addrLabel?.text = "221 W North Loop Blvd, Austin"
+            cell?.addrLabel?.text = "211 W North Loop Blvd, Austin"
             cell?.distLabel?.text = "1.2 mi"
         }
         

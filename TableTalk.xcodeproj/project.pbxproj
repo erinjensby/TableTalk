@@ -94,6 +94,7 @@
 				01624B7E1E849156005B9AE4 /* ListView.swift */,
 				01624B7F1E849156005B9AE4 /* LocationCell.swift */,
 				01624B801E849156005B9AE4 /* LocationDetails.swift */,
+				8EBF503C1E9054BD000A1D93 /* LocationListViewController.swift */,
 				01624B811E849156005B9AE4 /* Main.storyboard */,
 				01624B821E849156005B9AE4 /* MapView.swift */,
 				01624B831E849156005B9AE4 /* TabBarController.swift */,
@@ -104,7 +105,6 @@
 				0176EDCE1E6E5D5800365D72 /* LaunchScreen.storyboard */,
 				0176EDD11E6E5D5800365D72 /* Info.plist */,
 				0176EDD71E6E696700365D72 /* GoogleService-Info.plist */,
-				8EBF503C1E9054BD000A1D93 /* LocationListViewController.swift */,
 			);
 			path = TableTalk;
 			sourceTree = "<group>";
