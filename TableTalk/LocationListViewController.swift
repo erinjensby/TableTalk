@@ -48,8 +48,8 @@ class LocationListViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
         if segue.identifier == "locDesc" {
-            
             if let destinationVC = segue.destination as? LocationDetails {
                 var names:[String] = [String]()
                 names.append("Epoch Coffee")
@@ -58,11 +58,10 @@ class LocationListViewController: UIViewController{
                 names.append("221 W N Loop Blvd Austin, TX 78751")
                 names.append("epochcoffee.com")
                 names.append("24/7 coffee shop vending espresso drinks, sweets & pizza from East Side Pies in open, casual space.")
-                
                 names.append("3.6")
                 names.append("7.4")
                 names.append("5.8")
-                destinationVC.setNames(names: names)
+                destinationVC.setNames(nameList: names)
             }
         }
     }

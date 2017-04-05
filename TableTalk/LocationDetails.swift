@@ -21,13 +21,30 @@ class LocationDetails: UIViewController {
     @IBOutlet weak var tempLbl: UILabel!
     @IBOutlet weak var tableNum: UILabel!
     
-    var names:[String] = [String]()
+    var locName:String = "<location name>"
+    var hrs:String = "<hours>"
+    var phone:String = "<phone>"
+    var addr:String = "<address>"
+    var website:String = "<website>"
+    var dscrp:String = "<description>"
+    var noise:String = "average"
+    var temp:String = "average"
+    var table:String = "0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        locNameLbl.text = locName
+        hrsLbl.text = hrs
+        phoneLbl.text = phone
+        addrLbl.text = addr
+        websiteLbl.text = website
+        dscrpLbl.text = dscrp
         
+        noiseLvl.text = noise
+        tempLbl.text = temp
+        tableNum.text = table
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,17 +52,15 @@ class LocationDetails: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setNames(names:[String]) {
-        self.names = names
-        locNameLbl.text = names[0]
-        hrsLbl.text = names[1]
-        phoneLbl.text = names[2]
-        addrLbl.text = names[3]
-        websiteLbl.text = names[4]
-        dscrpLbl.text = names[5]
-        
-        noiseLvl.text = names[6]
-        tempLbl.text = names[7]
-        tableNum.text = names[8]
+    func setNames(nameList:[String]) {
+        locName = nameList[0]
+        hrs = nameList[1]
+        phone = nameList[2]
+        addr = nameList[3]
+        website = nameList[4]
+        dscrp = nameList[5]
+        noise = nameList[6]
+        temp = nameList[7]
+        table = nameList[8]
     }
 }
