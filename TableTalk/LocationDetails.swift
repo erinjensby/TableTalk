@@ -18,8 +18,20 @@ class LocationDetails: UIViewController {
     @IBOutlet weak var dscrpLbl: UILabel!
     
     @IBOutlet weak var noiseLvl: UILabel!
-    @IBOutlet weak var tempLbl: UILabel!
+    @IBOutlet weak var tempLvl: UILabel!
     @IBOutlet weak var tableNum: UILabel!
+    
+    @IBOutlet weak var noiseWhite: UILabel!
+    @IBOutlet weak var noiseWhiteWidth: NSLayoutConstraint!
+    @IBOutlet weak var noiseWhiteHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var tempWhite: UILabel!
+    @IBOutlet weak var tempWhiteWidth: NSLayoutConstraint!
+    @IBOutlet weak var tempWhiteHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var tablesWhite: UILabel!
+    @IBOutlet weak var tablesWhiteWidth: NSLayoutConstraint!
+    @IBOutlet weak var tablesWhiteHeight: NSLayoutConstraint!
     
     var locName:String = "<location name>"
     var hrs:String = "<hours>"
@@ -43,8 +55,17 @@ class LocationDetails: UIViewController {
         dscrpLbl.text = dscrp
         
         noiseLvl.text = noise
-        tempLbl.text = temp
-        tableNum.text = table
+        tempLvl.text = temp
+        if Int(table)! == 8 {
+            tableNum.text = "8+"
+        }
+        else {
+            tableNum.text = table
+        }
+        
+        changeTables()
+        changeTemp()
+        changeNoise()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,5 +83,107 @@ class LocationDetails: UIViewController {
         noise = nameList[6]
         temp = nameList[7]
         table = nameList[8]
+    }
+    
+    func changeTables() {
+        let tableCount:Int = Int(table)!
+        switch tableCount {
+            case 0:
+                tablesWhiteWidth.constant = 80
+                tablesWhiteHeight.constant = 80
+                tablesWhite.layer.cornerRadius = 40
+                break
+            case 1:
+                tablesWhiteWidth.constant = 70
+                tablesWhiteHeight.constant = 70
+                tablesWhite.layer.cornerRadius = 35
+                break
+            case 2:
+                tablesWhiteWidth.constant = 60
+                tablesWhiteHeight.constant = 60
+                tablesWhite.layer.cornerRadius = 30
+                break
+            case 3:
+                tablesWhiteWidth.constant = 50
+                tablesWhiteHeight.constant = 50
+                tablesWhite.layer.cornerRadius = 25
+                break
+            case 4:
+                tablesWhiteWidth.constant = 40
+                tablesWhiteHeight.constant = 40
+                tablesWhite.layer.cornerRadius = 20
+                break
+            case 5:
+                tablesWhiteWidth.constant = 30
+                tablesWhiteHeight.constant = 30
+                tablesWhite.layer.cornerRadius = 15
+                break
+            case 6:
+                tablesWhiteWidth.constant = 20
+                tablesWhiteHeight.constant = 20
+                tablesWhite.layer.cornerRadius = 10
+                break
+            case 7:
+                tablesWhiteWidth.constant = 10
+                tablesWhiteHeight.constant = 10
+                tablesWhite.layer.cornerRadius = 5
+                break
+            default:
+                tablesWhiteWidth.constant = 0
+                tablesWhiteHeight.constant = 0
+        }
+    }
+    
+    func changeTemp() {
+        let tableCount:Int = Int(table)!
+        switch tableCount {
+        case 0:
+            tablesWhiteWidth.constant = 80
+            tablesWhiteHeight.constant = 80
+            tablesWhite.layer.cornerRadius = 40
+            break
+        case 1:
+            tablesWhiteWidth.constant = 60
+            tablesWhiteHeight.constant = 60
+            tablesWhite.layer.cornerRadius = 30
+            break
+        case 2:
+            tablesWhiteWidth.constant = 40
+            tablesWhiteHeight.constant = 40
+            tablesWhite.layer.cornerRadius = 20
+            break
+        case 3:
+            tablesWhiteWidth.constant = 20
+            tablesWhiteHeight.constant = 20
+            tablesWhite.layer.cornerRadius = 10
+            break
+        default:
+            tablesWhiteWidth.constant = 0
+            tablesWhiteHeight.constant = 0
+        }
+    }
+    
+    func changeNoise() {
+        let tableCount:Int = Int(table)!
+        switch tableCount {
+        case 0:
+            tablesWhiteWidth.constant = 80
+            tablesWhiteHeight.constant = 80
+            tablesWhite.layer.cornerRadius = 40
+            break
+        case 1:
+            tablesWhiteWidth.constant = 53
+            tablesWhiteHeight.constant = 53
+            tablesWhite.layer.cornerRadius = 26.5
+            break
+        case 2:
+            tablesWhiteWidth.constant = 27
+            tablesWhiteHeight.constant = 27
+            tablesWhite.layer.cornerRadius = 13.5
+            break
+        default:
+            tablesWhiteWidth.constant = 0
+            tablesWhiteHeight.constant = 0
+        }
     }
 }

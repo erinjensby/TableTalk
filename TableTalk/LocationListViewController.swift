@@ -58,9 +58,9 @@ class LocationListViewController: UIViewController{
                 names.append("221 W N Loop Blvd Austin, TX 78751")
                 names.append("epochcoffee.com")
                 names.append("24/7 coffee shop vending espresso drinks, sweets & pizza from East Side Pies in open, casual space.")
-                names.append("3.6")
-                names.append("7.4")
-                names.append("5.8")
+                names.append("2")
+                names.append("3")
+                names.append("8")
                 destinationVC.setNames(nameList: names)
             }
         }
