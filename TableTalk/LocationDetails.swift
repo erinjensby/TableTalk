@@ -47,6 +47,7 @@ class LocationDetails: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = "TableTalk"
         locNameLbl.text = locName
         hrsLbl.text = hrs
         phoneLbl.text = phone

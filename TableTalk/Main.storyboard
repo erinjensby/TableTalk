@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="-490" y="253"/>
         </scene>
-        <!--View Controller-->
+        <!--TableTalk-->
         <scene sceneID="oGZ-Qc-4RX">
             <objects>
                 <viewController id="Oyw-FN-jPA" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LeS-aK-Xbf"/>
+                    <navigationItem key="navigationItem" title="TableTalk" id="LeS-aK-Xbf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMx-vY-r40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -495,7 +495,7 @@
             </objects>
             <point key="canvasLocation" x="2336.8000000000002" y="573.46326836581716"/>
         </scene>
-        <!--Location List View Controller-->
+        <!--TableTalk-->
         <scene sceneID="afL-FF-wFD">
             <objects>
                 <viewController id="2ng-3o-YxB" customClass="LocationListViewController" customModule="TableTalk" customModuleProvider="target" sceneMemberID="viewController">
@@ -604,7 +604,7 @@
                             <constraint firstItem="6K6-vH-d9Z" firstAttribute="leading" secondItem="k0F-Lo-jMB" secondAttribute="leading" id="sWN-qB-8SO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="agZ-m8-fsl"/>
+                    <navigationItem key="navigationItem" title="TableTalk" id="agZ-m8-fsl"/>
                     <connections>
                         <outlet property="categoryPicker" destination="ned-Xs-qSE" id="oDK-Sa-5cu"/>
                         <outlet property="listCategory" destination="6K6-vH-d9Z" id="kqw-tB-zO4"/>
@@ -615,7 +615,7 @@
             </objects>
             <point key="canvasLocation" x="1401" y="574"/>
         </scene>
-        <!--View Controller-->
+        <!--TableTalk-->
         <scene sceneID="mS1-xY-BoU">
             <objects>
                 <viewController id="n4X-HB-l7s" sceneMemberID="viewController">
@@ -627,21 +627,33 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SEARCH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIO-FB-O7m">
-                                <rect key="frame" x="122" y="8" width="131" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIO-FB-O7m">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                <color key="backgroundColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vSK-Nz-BHM">
+                                <rect key="frame" x="104" y="69" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lIO-FB-O7m" firstAttribute="leading" secondItem="12A-3J-ogd" secondAttribute="leading" id="Moc-oh-PXO"/>
+                            <constraint firstItem="lIO-FB-O7m" firstAttribute="top" secondItem="TQA-T9-vQX" secondAttribute="bottom" id="b2l-J3-HaZ"/>
+                            <constraint firstAttribute="trailing" secondItem="lIO-FB-O7m" secondAttribute="trailing" id="zlC-FP-Wu7"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MD5-XF-OSf"/>
+                    <navigationItem key="navigationItem" title="TableTalk" id="MD5-XF-OSf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCb-QP-AIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3294" y="1245"/>
+            <point key="canvasLocation" x="3293.5999999999999" y="1244.527736131934"/>
         </scene>
         <!--Map-->
         <scene sceneID="k7f-SF-m5N">
@@ -713,6 +725,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -733,6 +749,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -753,6 +773,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -763,7 +787,7 @@
             </objects>
             <point key="canvasLocation" x="461.60000000000002" y="1244.527736131934"/>
         </scene>
-        <!--View Controller2-->
+        <!--TableTalk-->
         <scene sceneID="9fG-mN-GW5">
             <objects>
                 <viewController id="XZI-Xf-Phg" customClass="ViewController2" customModule="TableTalk" customModuleProvider="target" sceneMemberID="viewController">
@@ -954,7 +978,7 @@
                             <constraint firstItem="05U-cD-92W" firstAttribute="centerX" secondItem="UIz-9f-5Rl" secondAttribute="centerX" id="zpB-D1-cS2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="F4c-J6-5jF"/>
+                    <navigationItem key="navigationItem" title="TableTalk" id="F4c-J6-5jF"/>
                     <connections>
                         <outlet property="locationLbl" destination="eti-41-iGt" id="ytk-MA-JAO"/>
                         <outlet property="loudnessLbl" destination="tE1-cz-gzu" id="1jg-oE-tXd"/>
