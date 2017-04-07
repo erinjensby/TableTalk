@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kq3-Kd-RnR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kq3-Kd-RnR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -174,10 +174,11 @@
                                                 <rect key="frame" x="43" y="198" width="34.5" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                                <color key="textColor" red="0.33626302079999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIy-oq-wfI">
-                                                <rect key="frame" x="32" y="264" width="56" height="23"/>
+                                                <rect key="frame" x="32" y="259.5" width="56" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="56" id="1e4-75-Gfu"/>
@@ -224,10 +225,11 @@
                                                 <rect key="frame" x="170" y="198" width="34.5" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                                <color key="textColor" red="0.33626302079999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyP-IK-g9X">
-                                                <rect key="frame" x="161" y="264" width="52" height="24"/>
+                                                <rect key="frame" x="161" y="259" width="52" height="25"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="52" id="RyY-0c-HMg"/>
@@ -273,10 +275,11 @@
                                                 <rect key="frame" x="298" y="198" width="34.5" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                                <color key="textColor" red="0.33626302079999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Tables" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXF-Kb-rM3">
-                                                <rect key="frame" x="275" y="264" width="80" height="23"/>
+                                                <rect key="frame" x="275" y="259.5" width="80" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="098-z1-6OM"/>
@@ -286,7 +289,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9H8-fc-XAQ" userLabel="Line">
-                                                <rect key="frame" x="0.0" y="297.5" width="375" height="5"/>
+                                                <rect key="frame" x="0.0" y="293" width="375" height="5"/>
                                                 <color key="backgroundColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="5" id="CCM-pC-oL5"/>
@@ -296,7 +299,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Hours:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXR-q6-Fc0">
-                                                <rect key="frame" x="20" y="317" width="65" height="23"/>
+                                                <rect key="frame" x="20" y="312.5" width="65" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="5GC-xT-29w"/>
@@ -306,7 +309,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;hours&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHj-Wy-aTM">
-                                                <rect key="frame" x="276" y="317.5" width="79" height="23"/>
+                                                <rect key="frame" x="276" y="313" width="79" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="VkP-hQ-Xnp"/>
@@ -316,7 +319,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xth-IG-bIY">
-                                                <rect key="frame" x="20" y="355.5" width="68" height="28"/>
+                                                <rect key="frame" x="20" y="351" width="68" height="28"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="Eyk-r9-wJb"/>
@@ -326,7 +329,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;phone&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSh-x8-ij4">
-                                                <rect key="frame" x="155" y="355" width="200" height="28"/>
+                                                <rect key="frame" x="155" y="350.5" width="200" height="28"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="28" id="zGo-pL-iRz"/>
@@ -336,7 +339,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVR-fX-aLB">
-                                                <rect key="frame" x="20" y="398.5" width="87" height="23"/>
+                                                <rect key="frame" x="20" y="394" width="87" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="Ykl-0M-ql6"/>
@@ -346,7 +349,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;address&gt;" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BJ-Vw-41c">
-                                                <rect key="frame" x="155" y="398.5" width="200" height="50"/>
+                                                <rect key="frame" x="155" y="394" width="200" height="50"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="Xwk-2Q-vPn"/>
@@ -357,7 +360,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAE-pQ-4Td">
-                                                <rect key="frame" x="20" y="463.5" width="83" height="23"/>
+                                                <rect key="frame" x="20" y="459" width="83" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="0HH-gl-JyY"/>
@@ -367,7 +370,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="&lt;website&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hs-II-f53">
-                                                <rect key="frame" x="258" y="463" width="97" height="23"/>
+                                                <rect key="frame" x="258" y="458.5" width="97" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="hC9-nV-o0k"/>
@@ -377,7 +380,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;description&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22T-6Q-e4T">
-                                                <rect key="frame" x="10" y="501" width="355" height="146"/>
+                                                <rect key="frame" x="10" y="487" width="355" height="160"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,17 +403,17 @@
                                             <constraint firstItem="3U0-Cc-kVx" firstAttribute="centerY" secondItem="cvZ-Kg-xuE" secondAttribute="centerY" id="CCc-tA-wg5"/>
                                             <constraint firstAttribute="trailing" secondItem="0BJ-Vw-41c" secondAttribute="trailing" constant="20" id="CaI-9f-7Bk"/>
                                             <constraint firstItem="xth-IG-bIY" firstAttribute="leading" secondItem="HXR-q6-Fc0" secondAttribute="leading" id="Ejj-es-1vR"/>
-                                            <constraint firstItem="pXF-Kb-rM3" firstAttribute="top" secondItem="yb9-S1-eXK" secondAttribute="bottom" constant="15" id="Elu-io-Qix"/>
+                                            <constraint firstItem="pXF-Kb-rM3" firstAttribute="top" secondItem="yb9-S1-eXK" secondAttribute="bottom" constant="10" id="Elu-io-Qix"/>
                                             <constraint firstItem="7cx-IF-F6J" firstAttribute="leading" secondItem="kUd-8s-BP9" secondAttribute="leading" constant="20" id="FrE-Ti-Ray"/>
                                             <constraint firstItem="xyP-IK-g9X" firstAttribute="centerY" secondItem="yIy-oq-wfI" secondAttribute="centerY" id="Fyf-u0-FpQ"/>
                                             <constraint firstItem="pXF-Kb-rM3" firstAttribute="centerY" secondItem="xyP-IK-g9X" secondAttribute="centerY" id="G9g-D5-bxH"/>
                                             <constraint firstItem="9H8-fc-XAQ" firstAttribute="top" secondItem="pXF-Kb-rM3" secondAttribute="bottom" constant="10" id="GNH-G8-y66"/>
                                             <constraint firstItem="lSh-x8-ij4" firstAttribute="leading" secondItem="0BJ-Vw-41c" secondAttribute="leading" id="Gtg-Qb-mTH"/>
                                             <constraint firstItem="IVR-fX-aLB" firstAttribute="leading" secondItem="xth-IG-bIY" secondAttribute="leading" id="K4g-tz-ahU"/>
-                                            <constraint firstItem="22T-6Q-e4T" firstAttribute="top" secondItem="cAE-pQ-4Td" secondAttribute="bottom" constant="15" id="KC3-xz-w92"/>
+                                            <constraint firstItem="22T-6Q-e4T" firstAttribute="top" secondItem="cAE-pQ-4Td" secondAttribute="bottom" constant="5" id="KC3-xz-w92"/>
                                             <constraint firstItem="DlE-hR-Kmv" firstAttribute="centerX" secondItem="kUd-8s-BP9" secondAttribute="centerX" id="LB2-1p-fZA"/>
                                             <constraint firstItem="lSh-x8-ij4" firstAttribute="centerY" secondItem="xth-IG-bIY" secondAttribute="centerY" id="LHH-ib-ve2"/>
-                                            <constraint firstItem="yIy-oq-wfI" firstAttribute="top" secondItem="7cx-IF-F6J" secondAttribute="bottom" constant="15" id="Lr5-7U-flk"/>
+                                            <constraint firstItem="yIy-oq-wfI" firstAttribute="top" secondItem="7cx-IF-F6J" secondAttribute="bottom" constant="10" id="Lr5-7U-flk"/>
                                             <constraint firstItem="Pf2-Hd-sd3" firstAttribute="leading" secondItem="kUd-8s-BP9" secondAttribute="leading" id="MnP-9R-MmB"/>
                                             <constraint firstItem="7hs-II-f53" firstAttribute="trailing" secondItem="0BJ-Vw-41c" secondAttribute="trailing" id="N8w-e6-L3E"/>
                                             <constraint firstItem="xth-IG-bIY" firstAttribute="top" secondItem="HXR-q6-Fc0" secondAttribute="bottom" constant="15" id="NLH-70-b7E"/>
@@ -420,7 +423,7 @@
                                             <constraint firstAttribute="height" constant="647" id="Q4K-Eh-0wl"/>
                                             <constraint firstItem="Pf2-Hd-sd3" firstAttribute="centerX" secondItem="kUd-8s-BP9" secondAttribute="centerX" id="Tvz-Ws-b79"/>
                                             <constraint firstItem="DlE-hR-Kmv" firstAttribute="leading" secondItem="kUd-8s-BP9" secondAttribute="leading" constant="20" id="WC3-lW-PXz"/>
-                                            <constraint firstItem="xyP-IK-g9X" firstAttribute="top" secondItem="6OX-ei-wKy" secondAttribute="bottom" constant="15" id="WJ5-x2-91o"/>
+                                            <constraint firstItem="xyP-IK-g9X" firstAttribute="top" secondItem="6OX-ei-wKy" secondAttribute="bottom" constant="10" id="WJ5-x2-91o"/>
                                             <constraint firstItem="cvZ-Kg-xuE" firstAttribute="centerX" secondItem="7cx-IF-F6J" secondAttribute="centerX" id="YIZ-o2-MZx"/>
                                             <constraint firstItem="uu5-7b-krO" firstAttribute="centerX" secondItem="3U0-Cc-kVx" secondAttribute="centerX" id="ZAG-db-zUr"/>
                                             <constraint firstItem="IVR-fX-aLB" firstAttribute="top" secondItem="xth-IG-bIY" secondAttribute="bottom" constant="15" id="c4X-gx-UHX"/>
@@ -646,7 +649,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2sw-Dj-cYY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="X6N-qZ-hkL" userLabel="Map"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="SXu-wP-es5">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="SXu-wP-es5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
@@ -676,7 +679,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gDN-Cw-zSr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" id="EXR-6a-kl1"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nMH-L0-2cG">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="nMH-L0-2cG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -706,7 +709,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RAI-xa-Jvt" userLabel="Favorites" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" id="Dcg-XJ-TJw" userLabel="Favorites"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="01o-0Q-UzF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="01o-0Q-UzF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -726,7 +729,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vA6-J5-fpH" userLabel="Search" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" id="ef9-PQ-pLD" userLabel="Search"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="i98-cv-9ND">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="i98-cv-9ND">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -746,7 +749,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y40-I1-PEZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Check In" id="RAg-j2-wLo"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Mn0-bO-JZ8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Mn0-bO-JZ8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>

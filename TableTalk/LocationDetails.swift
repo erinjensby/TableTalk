@@ -54,14 +54,14 @@ class LocationDetails: UIViewController {
         websiteLbl.text = website
         dscrpLbl.text = dscrp
         
-        noiseLvl.text = noise
-        tempLvl.text = temp
-        if Int(table)! == 8 {
-            tableNum.text = "8+"
-        }
-        else {
-            tableNum.text = table
-        }
+//        noiseLvl.text = noise
+//        tempLvl.text = temp
+//        if Int(table)! == 8 {
+//            tableNum.text = "8+"
+//        }
+//        else {
+//            tableNum.text = table
+//        }
         
         changeTables()
         changeTemp()
@@ -87,6 +87,7 @@ class LocationDetails: UIViewController {
     
     func changeTables() {
         let tableCount:Int = Int(table)!
+        tableNum.text = table
         switch tableCount {
             case 0:
                 tablesWhiteWidth.constant = 80
@@ -141,25 +142,30 @@ class LocationDetails: UIViewController {
             tablesWhiteWidth.constant = 80
             tablesWhiteHeight.constant = 80
             tablesWhite.layer.cornerRadius = 40
+            tempLvl.text = "cold"
             break
         case 1:
             tablesWhiteWidth.constant = 60
             tablesWhiteHeight.constant = 60
             tablesWhite.layer.cornerRadius = 30
+            tempLvl.text = "cool"
             break
         case 2:
             tablesWhiteWidth.constant = 40
             tablesWhiteHeight.constant = 40
             tablesWhite.layer.cornerRadius = 20
+            tempLvl.text = "average"
             break
         case 3:
             tablesWhiteWidth.constant = 20
             tablesWhiteHeight.constant = 20
             tablesWhite.layer.cornerRadius = 10
+            tempLvl.text = "warm"
             break
         default:
             tablesWhiteWidth.constant = 0
             tablesWhiteHeight.constant = 0
+            tempLvl.text = "hot"
         }
     }
     
@@ -170,20 +176,24 @@ class LocationDetails: UIViewController {
             tablesWhiteWidth.constant = 80
             tablesWhiteHeight.constant = 80
             tablesWhite.layer.cornerRadius = 40
+            noiseLvl.text = "silent"
             break
         case 1:
             tablesWhiteWidth.constant = 53
             tablesWhiteHeight.constant = 53
             tablesWhite.layer.cornerRadius = 26.5
+            noiseLvl.text = "quiet"
             break
         case 2:
             tablesWhiteWidth.constant = 27
             tablesWhiteHeight.constant = 27
             tablesWhite.layer.cornerRadius = 13.5
+            noiseLvl.text = "average"
             break
         default:
             tablesWhiteWidth.constant = 0
             tablesWhiteHeight.constant = 0
+            noiseLvl.text = "loud"
         }
     }
 }
