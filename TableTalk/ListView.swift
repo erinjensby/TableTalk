@@ -62,21 +62,19 @@ class ListView: UITableViewController {
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "locDesc" {
-            
             if let destinationVC = segue.destination as? LocationDetails {
-                destinationVC.names.append("Epoch Coffee")
-                destinationVC.names.append("24 / 7")
-                destinationVC.names.append("(512) 454-3762")
-                destinationVC.names.append("221 W N Loop Blvd Austin, TX 78751")
-                destinationVC.names.append("epochcoffee.com")
-                destinationVC.names.append("24/7 coffee shop vending espresso drinks, sweets & pizza from East Side Pies in open, casual space.")
-                
-                destinationVC.names.append("3.6")
-                destinationVC.names.append("7.4")
-                destinationVC.names.append("5.8")
+//                destinationVC.names.append("Epoch Coffee")
+//                destinationVC.names.append("24 / 7")
+//                destinationVC.names.append("(512) 454-3762")
+//                destinationVC.names.append("221 W N Loop Blvd Austin, TX 78751")
+//                destinationVC.names.append("epochcoffee.com")
+//                destinationVC.names.append("24/7 coffee shop vending espresso drinks, sweets & pizza from East Side Pies in open, casual space.")
+//                
+//                destinationVC.names.append("3.6")
+//                destinationVC.names.append("7.4")
+//                destinationVC.names.append("5.8")
             }
         }
-
     }
     
     func setColor(rowNumber: Int, cell: LocationCell?, numRows: Int) {
@@ -87,12 +85,12 @@ class ListView: UITableViewController {
     }
 }
 
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(hex:Int) {
-        self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
-    }
-}
+//extension UIColor {
+//    convenience init(red: Int, green: Int, blue: Int) {
+//        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+//    }
+//    
+//    convenience init(hex:Int) {
+//        self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
+//    }
+//}
