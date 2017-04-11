@@ -23,6 +23,7 @@
 		0176EDD81E6E696700365D72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0176EDD71E6E696700365D72 /* GoogleService-Info.plist */; };
 		30EE9E2148CFBCE7E36358EE /* Pods_TableTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053AAF587B0F3B9506A1C991 /* Pods_TableTalk.framework */; };
 		8EBF503D1E9054BD000A1D93 /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBF503C1E9054BD000A1D93 /* LocationListViewController.swift */; };
+		8ED1AE031E9C5673001FA419 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED1AE021E9C5673001FA419 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		0176EDD71E6E696700365D72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		053AAF587B0F3B9506A1C991 /* Pods_TableTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EBF503C1E9054BD000A1D93 /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
+		8ED1AE021E9C5673001FA419 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A4C4D79981C1E22479D3A420 /* Pods-TableTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableTalk/Pods-TableTalk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				01624B7F1E849156005B9AE4 /* LocationCell.swift */,
 				01624B801E849156005B9AE4 /* LocationDetails.swift */,
 				8EBF503C1E9054BD000A1D93 /* LocationListViewController.swift */,
+				8ED1AE021E9C5673001FA419 /* SearchViewController.swift */,
 				01624B811E849156005B9AE4 /* Main.storyboard */,
 				01624B821E849156005B9AE4 /* MapView.swift */,
 				01624B831E849156005B9AE4 /* TabBarController.swift */,
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ED1AE031E9C5673001FA419 /* SearchViewController.swift in Sources */,
 				0176EDC81E6E5D5800365D72 /* ViewController.swift in Sources */,
 				8EBF503D1E9054BD000A1D93 /* LocationListViewController.swift in Sources */,
 				01624B8D1E849156005B9AE4 /* ViewController2.swift in Sources */,
