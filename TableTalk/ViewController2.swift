@@ -108,9 +108,17 @@ class ViewController2: UIViewController {
                 return
             }
             if let placeLikelihoodList = placeLikelihoodList {
-                let place = placeLikelihoodList.likelihoods.first?.place
-                if let place = place {
-                    self.locationLbl.text = place.name
+                for likelihood in placeLikelihoodList.likelihoods {
+                    let place = likelihood.place
+                    print(place.name)
+                    print(place.placeID)
+                    for locationID in StudyLocations.locationIDs {
+                        print(locationID)
+                        if place.placeID == locationID {
+                            self.locationLbl.text = place.name
+                            break;
+                        }
+                    }
                 }
             }
         })

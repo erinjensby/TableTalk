@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
         
         let secondTab = self.viewControllers?[1] as! UINavigationController
         
-        let listViewController = secondTab.topViewController as! ListView
+        let listViewController = secondTab.topViewController as! LocationListViewController
         
         listViewController.places = self.places
         
