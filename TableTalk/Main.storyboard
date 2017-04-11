@@ -10,40 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TableTalk-->
-        <scene sceneID="PN3-M3-YSc">
-            <objects>
-                <viewController id="j7Q-Q5-ZXL" customClass="MapView" customModule="TableTalk" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="atL-zC-EkJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="sBv-01-gfV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tTB-0q-nAQ">
-                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0oO-3g-1Gl">
-                                <rect key="frame" x="0.0" y="-8" width="375" height="562"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="0oO-3g-1Gl" secondAttribute="trailing" id="XoE-bx-Bex"/>
-                            <constraint firstItem="0oO-3g-1Gl" firstAttribute="leading" secondItem="tTB-0q-nAQ" secondAttribute="leading" id="rzJ-EX-7n1"/>
-                            <constraint firstItem="sBv-01-gfV" firstAttribute="top" secondItem="0oO-3g-1Gl" secondAttribute="bottom" id="sff-X8-qqw"/>
-                            <constraint firstItem="0oO-3g-1Gl" firstAttribute="top" secondItem="tTB-0q-nAQ" secondAttribute="top" constant="-8" id="tac-DD-WgK"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="TableTalk" id="ITl-Fx-2XY"/>
-                    <connections>
-                        <outlet property="mapView" destination="0oO-3g-1Gl" id="qBg-4w-O6N"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wMa-Ga-KZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1400.8" y="-76.011994002998506"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="x4k-jY-wi6">
             <objects>
@@ -548,13 +514,32 @@
             </objects>
             <point key="canvasLocation" x="3276" y="-76.011994002998506"/>
         </scene>
+        <!--Google Map View-->
+        <scene sceneID="qYI-0I-0go">
+            <objects>
+                <viewController id="EFt-XN-I5g" customClass="GoogleMapView" customModule="TableTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rPP-NC-tUJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="QNn-mQ-EiL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="apY-Ys-vmw">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="i6I-iM-JBM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cuH-lB-xtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1401" y="-76"/>
+        </scene>
         <!--Map-->
         <scene sceneID="k7f-SF-m5N">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2sw-Dj-cYY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="X6N-qZ-hkL" userLabel="Map"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="SXu-wP-es5">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="SXu-wP-es5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
@@ -571,7 +556,7 @@
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
-                        <segue destination="j7Q-Q5-ZXL" kind="relationship" relationship="rootViewController" id="dC6-N7-6tE"/>
+                        <segue destination="EFt-XN-I5g" kind="relationship" relationship="rootViewController" id="foa-BB-PWo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O4T-RG-vMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -584,7 +569,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gDN-Cw-zSr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" id="EXR-6a-kl1"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="nMH-L0-2cG">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nMH-L0-2cG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -614,7 +599,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RAI-xa-Jvt" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" id="Dcg-XJ-TJw"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="01o-0Q-UzF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="01o-0Q-UzF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -634,7 +619,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vA6-J5-fpH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" id="ef9-PQ-pLD"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="i98-cv-9ND">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="i98-cv-9ND">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -654,7 +639,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y40-I1-PEZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Check In" id="RAg-j2-wLo"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Mn0-bO-JZ8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Mn0-bO-JZ8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
