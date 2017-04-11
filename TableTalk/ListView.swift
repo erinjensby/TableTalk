@@ -9,10 +9,19 @@
 import UIKit
 
 class ListView: UITableViewController {
+    var places = [Place]()
+    let sortStyle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = .none
+        
+        
+        
+        places.sort { $0.numTables! > $1.numTables! }
+        
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(handler1(notification:)), name: NSNotification.Name(rawValue: "event1Key"), object: nil)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,6 +29,23 @@ class ListView: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    func handler1(notification: Notification) {
+        
+        print("IN THE HANDLER")
+        // extract the data that was sent in the notification
+        let dataDict:Dictionary<String,[Place]> = notification.userInfo as! Dictionary<String,[Place]>
+      
+        let places2 = dataDict["data1"]!
+        
+        places = places2
+      
+        // update the label with the data
+        // lblMessage.text = "data1: [\(data1)], data2: [\(data2)]"
+        
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,7 +61,7 @@ class ListView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 9
+        return places.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,13 +70,13 @@ class ListView: UITableViewController {
         cell?.backgroundColor = UIColor(hex: 0x8888d7)
 
         // Configure the cell...
-        if indexPath.row == 0 {
-            cell?.locationLabel.text = "Epoch Coffee"
-            cell?.addrLabel.text = "221 W North Loop Blvd, Austin"
-            cell?.distLabel.text = "1.2 mi"
-        }
         
-        setColor(rowNumber: indexPath.row, cell: cell, numRows: 9)
+            cell?.locationLabel.text = places[indexPath.row].name
+          //  cell?.addrLabel.text = "221 W North Loop Blvd, Austin"
+           // cell?.distLabel.text = "1.2 mi"
+        
+        
+        setColor(rowNumber: indexPath.row, cell: cell, numRows: places.count)
 
         return cell!
     }

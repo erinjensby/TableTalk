@@ -24,6 +24,7 @@ class MapView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    
         // Do any additional setup after loading the view.
         let initialLocation = CLLocation(latitude: 30.285012, longitude: -97.734203)
         centerMapOnLocation(location: initialLocation)

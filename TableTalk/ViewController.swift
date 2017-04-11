@@ -14,6 +14,11 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
+    var ref: FIRDatabaseReference!
+    
+    var places = [Place]()
+    
+
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -32,6 +37,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 print(u.email!)
                 
                 let vc:TabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyTabBar") as! TabBarController
+                
+                vc.places=self.places
                 
                 self.present(vc, animated: true, completion: nil)
                
@@ -74,12 +81,91 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = FIRDatabase.database().reference()
+        
+        buildPlaceArray()
+        
+        print("after method")
+     
+        
+       UIApplication.shared.isNetworkActivityIndicatorVisible = true
        
+        
         // Do any additional setup after loading the view, typically from a nib.
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func buildPlaceArray(){
+        
+        
+        
+        ref.child("Places").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let dict = snapshot.value as? NSDictionary
+            
+            for (key,value) in dict! {
+                var placeName = key as! String
+                
+                var noiseTotal = 0
+                var numTablesTotal = 0
+                var tempTotal = 0
+                var count = 0
+                for(key2,value2) in (value as? NSDictionary)!{
+                    count+=1
+                    
+                    
+                    for(key3,value3) in (value2 as? NSDictionary)!{
+                        
+                        if(key3 as? String == "Noise"){
+                            noiseTotal+=value3 as! Int
+                        }
+                        
+                        if(key3 as? String  == "Num Tables"){
+                            numTablesTotal+=value3 as! Int
+                        }
+                        
+                        if(key3 as? String == "Temperature"){
+                            tempTotal+=value3 as! Int
+                        }
+                        
+                        
+                        
+                    }
+                }
+                
+             
+                //create place here
+                let tempPlace = Place(_name: placeName, _numTables: numTablesTotal/count, _temp: tempTotal/count, _noise: noiseTotal/count)
+                
+                
+                
+                self.places.append(tempPlace)
+               print("In the method")
+
+                
+                
+                
+                
+                
+            }
+            
+            // ...
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.postData()
+
+        })
+    
+    }
+    
+    func postData(){
+        print("TEST \(places.count)")
+      
+        
+
     }
 
     override func didReceiveMemoryWarning() {
