@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class LocationDetails: UIViewController {
 
@@ -32,6 +33,8 @@ class LocationDetails: UIViewController {
     @IBOutlet weak var tablesWhite: UILabel!
     @IBOutlet weak var tablesWhiteWidth: NSLayoutConstraint!
     @IBOutlet weak var tablesWhiteHeight: NSLayoutConstraint!
+    
+    var place:GMSPlace?
     
     var locName:String = "<location name>"
     var hrs:String = "<hours>"

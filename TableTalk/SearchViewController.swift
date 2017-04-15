@@ -12,9 +12,47 @@ import GooglePlaces
 class SearchViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
+    var locations:[GMSPlace] = [GMSPlace]()
+//    var locations:Dictionary<String, GMSPlace> = Dictionary<String, GMSPlace>()
+//    var locations:Dictionary<String, String> = Dictionary<String, String>()
+//    var locations:[String]
     var allLocations:[String] = ["Epoch Coffee", "E"]
-    var searchLocations:[String] = [String]()
+    var searchLocations:[GMSPlace] = [GMSPlace]()
+//    var searchedLocations:
+    var placesClient: GMSPlacesClient!
     @IBOutlet weak var searchTableView: UITableView!
+    
+    func createLocationDictionary() {
+//        let locationIDs = StudyLocations.locationIDs
+//        var places = [GMSPlace]()
+        
+        for locationID in StudyLocations.locationIDs {
+//            let locationID = locationIDs[i]
+            placesClient.lookUpPlaceID(locationID, callback: { (place, error) -> Void in
+                if let error = error {
+                    print("lookup place id query error: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let place = place else {
+                    print("No place details for \(locationID)")
+                    return
+                }
+                
+                self.locations.append(place)
+                                print("Place name \(place.name)")
+                                print("Place address \(String(describing: place.formattedAddress))")
+                                print("Place placeID \(place.placeID)")
+                //                print("Place attributions \(String(describing: place.attributions))")
+            })
+        }
+//        
+//        for i in 0...locationIDs.count {
+//            let locationID = locationIDs[i]
+//            let place = places[i]
+//            locations[locationID] = place
+//        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +68,10 @@ class SearchViewController: UIViewController {
         searchTableView.tableHeaderView = searchController.searchBar
         searchTableView.delegate = self
         searchTableView.dataSource = self
+        
+        placesClient = GMSPlacesClient.shared()
+        
+        createLocationDictionary()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,11 +115,16 @@ extension SearchViewController: UISearchResultsUpdating {
     }
     
     func searchForResult(search: String, scope: String = "All") {
-        searchLocations = allLocations.filter {(location) in
-            if location.lowercased().range(of: search.lowercased()) != nil {
+        searchLocations = locations.filter {(location) in
+            let locationName = location.name
+            if locationName.lowercased().range(of: search.lowercased()) != nil {
                 return true
             }
             return false
+//            if location.lowercased().range(of: search.lowercased()) != nil {
+//                return true
+//            }
+//            return false
         }
         searchTableView.reloadData()
     }
@@ -97,7 +144,10 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "locationID", for: indexPath) as? LocationCell
         
         cell?.backgroundColor = UIColor(hex: 0x8888d7)
-        cell?.locationLabel?.text = searchLocations[indexPath.row]
+        
+        let location:GMSPlace = searchLocations[indexPath.row]
+        cell?.locationLabel?.text = location.name
+        cell?.addrLabel?.text = location.formattedAddress!
         setColor(rowNumber: indexPath.row, cell: cell, numRows: searchLocations.count)
         return cell!
     }
