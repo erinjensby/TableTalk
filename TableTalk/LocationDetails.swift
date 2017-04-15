@@ -10,6 +10,8 @@ import UIKit
 import GooglePlaces
 
 class LocationDetails: UIViewController {
+    
+    @IBOutlet weak var image: UIImageView!
 
     @IBOutlet weak var locNameLbl: UILabel!
     @IBOutlet weak var hrsLbl: UILabel!
@@ -68,6 +70,8 @@ class LocationDetails: UIViewController {
             phone.replaceSubrange(phoneRange, with: ") ")
             let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
             addr.removeSubrange(range)
+            
+            loadFirstPhotoForPlace(placeID: place.placeID)
         }
         
         locNameLbl.text = locName
@@ -216,5 +220,30 @@ class LocationDetails: UIViewController {
             tablesWhiteHeight.constant = 0
             noiseLvl.text = "loud"
         }
+    }
+    
+    func loadFirstPhotoForPlace(placeID: String) {
+        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+            } else {
+                if let firstPhoto = photos?.results.first {
+                    self.loadImageForMetadata(photoMetadata: firstPhoto)
+                }
+            }
+        }
+    }
+    
+    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
+        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
+            (photo, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+            } else {
+                self.image.image = photo
+            }
+        })
     }
 }

@@ -142,12 +142,11 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         cell?.addrLabel?.text = addr
         let distance = calculateDistance(destination: location)
         if distance >= 0 {
-            cell?.distLabel?.text = "\(Double(round(100*distance)/100)) mi"
+            cell?.distLabel?.text = "\(Double(round(10*distance)/10)) mi"
         }
         else {
             cell?.distLabel?.text = "n/a"
         }
-//        cell?.distLabel?.text = 
         
         setColor(rowNumber: indexPath.row, cell: cell, numRows: searchLocations.count)
         return cell!
