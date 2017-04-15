@@ -14,6 +14,7 @@ class ViewController2: UIViewController {
     
     var placesClient: GMSPlacesClient!
     var ref: FIRDatabaseReference!
+    var timer = Timer()
 
 
     @IBOutlet weak var locationLbl: UILabel!
@@ -25,6 +26,7 @@ class ViewController2: UIViewController {
     @IBOutlet weak var loudnessSlider: UISlider!
     @IBOutlet weak var tempSlider: UISlider!
    
+    @IBOutlet weak var submitButton: UIButton!
     
     @IBAction func tableSliderValueChanged(_ sender: UISlider) {
         let currentValue:Int = Int(sender.value)
@@ -75,6 +77,15 @@ class ViewController2: UIViewController {
     }
     
     @IBAction func submitData(_ sender: Any) {
+        submitButton.isUserInteractionEnabled = false
+        submitButton.alpha = 0.6
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
+        print("Please wait 5 seconds before submitting another response")
+        let submitAlert = UIAlertController(title: "Response Submitted!", message: "Please wait 5 seconds before submitting another response.", preferredStyle: UIAlertControllerStyle.alert)
+        submitAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(submitAlert, animated: true, completion: nil)
+
         let date = Date()
         
         let dateFormatter = DateFormatter()
@@ -88,11 +99,25 @@ class ViewController2: UIViewController {
         
     }
     
+    func timerAction() {
+        submitButton.isUserInteractionEnabled = true
+        submitButton.alpha = 1
+        print("You can now submit again")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
        
         ref = FIRDatabase.database().reference()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Code from Google Places API Guide
         placesClient = GMSPlacesClient.shared()
         
@@ -117,14 +142,6 @@ class ViewController2: UIViewController {
             }
             self.locationLbl.adjustsFontSizeToFitWidth = true
         })
-        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
