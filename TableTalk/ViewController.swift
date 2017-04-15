@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import MapKit
 import CoreLocation
+import FirebaseDatabase
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     

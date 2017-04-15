@@ -11,24 +11,23 @@ import GooglePlaces
 
 class SearchViewController: UIViewController {
     
-    let searchControllerTest = UISearchController(searchResultsController: nil)
+    let searchController = UISearchController(searchResultsController: nil)
     var allLocations:[String] = ["Epoch Coffee", "E"]
     var searchLocations:[String] = [String]()
-//    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        searchControllerTest.searchResultsUpdater = self
-        searchControllerTest.dimsBackgroundDuringPresentation = false
-        searchControllerTest.hidesNavigationBarDuringPresentation = false
-        searchControllerTest.searchBar.barTintColor = UIColor(hex:0x8888d7)
-        searchControllerTest.searchBar.sizeToFit()
-        searchControllerTest.searchBar.isTranslucent = true
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.barTintColor = UIColor(hex:0x8888d7)
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.isTranslucent = true
         
-        searchTableView.tableHeaderView = searchControllerTest.searchBar
+        searchTableView.tableHeaderView = searchController.searchBar
         searchTableView.delegate = self
         searchTableView.dataSource = self
     }
@@ -36,6 +35,34 @@ class SearchViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "locDesc" {
+            
+            if let destinationVC = segue.destination as? LocationDetails {
+                searchController.isActive = false
+                var names:[String] = [String]()
+                names.append("Epoch Coffee")
+                names.append("24 / 7")
+                names.append("(512) 454-3762")
+                names.append("221 W N Loop Blvd Austin, TX 78751")
+                names.append("epochcoffee.com")
+                names.append("24/7 coffee shop vending espresso drinks, sweets & pizza from East Side Pies in open, casual space.")
+                names.append("2")
+                names.append("3")
+                names.append("8")
+                destinationVC.setNames(nameList: names)
+                
+                self.searchController.searchBar.endEditing(true)
+                let backButton = UIBarButtonItem()
+                backButton.title = "Search"
+                navigationItem.backBarButtonItem = backButton
+            }
+        }
     }
 }
 

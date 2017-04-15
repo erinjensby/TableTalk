@@ -40,6 +40,11 @@ class LocationListViewController: UIViewController{
         self.listCategory.text = "Distance"
         places.sort { $0.numTables! > $1.numTables! }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,10 +70,12 @@ class LocationListViewController: UIViewController{
                 names.append("3")
                 names.append("8")
                 destinationVC.setNames(nameList: names)
+                let backButton = UIBarButtonItem()
+                backButton.title = "List"
+                navigationItem.backBarButtonItem = backButton
             }
         }
     }
-
 }
 
 extension LocationListViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {    

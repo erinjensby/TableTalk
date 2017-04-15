@@ -73,25 +73,19 @@ class ViewController2: UIViewController {
             loudnessLbl.text = "average"
         }
     }
+    
     @IBAction func submitData(_ sender: Any) {
-        
-       // let date = Date()
-        
-        
         let date = Date()
         
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "MMM dd HH:mm:ss"
-         let timeStamp = dateFormatter.string(from: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd HH:mm:ss"
+        let timeStamp = dateFormatter.string(from: date)
         print(locationLbl.text!)
-      
-        ref.child("Places").child(locationLbl.text!).child(timeStamp).child("Num Tables").setValue(Int(numTablesSlider.value))
-     
-      ref.child("Places").child(locationLbl.text!).child(timeStamp).child("Temperature").setValue(Int(tempSlider.value))
         
+        ref.child("Places").child(locationLbl.text!).child(timeStamp).child("Num Tables").setValue(Int(numTablesSlider.value))
+        ref.child("Places").child(locationLbl.text!).child(timeStamp).child("Temperature").setValue(Int(tempSlider.value))
         ref.child("Places").child(locationLbl.text!).child(timeStamp).child("Noise").setValue(Int(loudnessSlider.value))
         
-    
     }
     
     override func viewDidLoad() {
@@ -121,6 +115,7 @@ class ViewController2: UIViewController {
                     }
                 }
             }
+            self.locationLbl.adjustsFontSizeToFitWidth = true
         })
         
     }

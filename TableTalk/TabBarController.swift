@@ -15,7 +15,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        self.delegate = self
         
         let secondTab = self.viewControllers?[1] as! UINavigationController
         
@@ -63,4 +63,18 @@ class TabBarController: UITabBarController {
     }
     */
 
+}
+
+extension TabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let navVC = viewController as? UINavigationController
+        if navVC?.viewControllers.count == 2 {
+            navVC?.popViewController(animated: true)
+        }
+        let searchNavVC = self.viewControllers?[3] as? UINavigationController
+        if let searchVC = searchNavVC?.viewControllers[0] as? SearchViewController {
+            searchVC.searchController.isActive = false
+        }
+    }
 }
