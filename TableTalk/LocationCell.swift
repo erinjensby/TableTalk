@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class LocationCell: UITableViewCell {
 
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var addrLabel: UILabel!
     @IBOutlet weak var distLabel: UILabel!
+    
     var locationText:String = ""
     var addrText:String = ""
     var distText:String = ""

@@ -330,23 +330,22 @@
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="0HH-gl-JyY"/>
+                                                    <constraint firstAttribute="width" constant="83" id="rz7-tQ-4p9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="&lt;website&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hs-II-f53">
-                                                <rect key="frame" x="258" y="458.5" width="97" height="23"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="&lt;website&gt;" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hs-II-f53">
+                                                <rect key="frame" x="103" y="459" width="252" height="23"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="23" id="hC9-nV-o0k"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <color key="textColor" red="0.33626302079999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;description&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22T-6Q-e4T">
-                                                <rect key="frame" x="10" y="487" width="355" height="160"/>
+                                                <rect key="frame" x="10" y="482" width="355" height="165"/>
                                                 <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <color key="textColor" red="0.33626302079999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -376,7 +375,6 @@
                                             <constraint firstItem="9H8-fc-XAQ" firstAttribute="top" secondItem="pXF-Kb-rM3" secondAttribute="bottom" constant="10" id="GNH-G8-y66"/>
                                             <constraint firstItem="lSh-x8-ij4" firstAttribute="leading" secondItem="0BJ-Vw-41c" secondAttribute="leading" id="Gtg-Qb-mTH"/>
                                             <constraint firstItem="IVR-fX-aLB" firstAttribute="leading" secondItem="xth-IG-bIY" secondAttribute="leading" id="K4g-tz-ahU"/>
-                                            <constraint firstItem="22T-6Q-e4T" firstAttribute="top" secondItem="cAE-pQ-4Td" secondAttribute="bottom" constant="5" id="KC3-xz-w92"/>
                                             <constraint firstItem="DlE-hR-Kmv" firstAttribute="centerX" secondItem="kUd-8s-BP9" secondAttribute="centerX" id="LB2-1p-fZA"/>
                                             <constraint firstItem="lSh-x8-ij4" firstAttribute="centerY" secondItem="xth-IG-bIY" secondAttribute="centerY" id="LHH-ib-ve2"/>
                                             <constraint firstItem="yIy-oq-wfI" firstAttribute="top" secondItem="7cx-IF-F6J" secondAttribute="bottom" constant="10" id="Lr5-7U-flk"/>
@@ -396,6 +394,8 @@
                                             <constraint firstItem="cvZ-Kg-xuE" firstAttribute="centerX" secondItem="7cx-IF-F6J" secondAttribute="centerX" id="dEj-KP-bAL"/>
                                             <constraint firstAttribute="trailing" secondItem="9H8-fc-XAQ" secondAttribute="trailing" id="dIp-nJ-rly"/>
                                             <constraint firstItem="6kf-xG-SwM" firstAttribute="centerX" secondItem="xv3-Zk-cym" secondAttribute="centerX" id="egp-hL-oG3"/>
+                                            <constraint firstItem="7hs-II-f53" firstAttribute="leading" secondItem="cAE-pQ-4Td" secondAttribute="trailing" id="fBN-Fv-aYn"/>
+                                            <constraint firstItem="22T-6Q-e4T" firstAttribute="top" secondItem="7hs-II-f53" secondAttribute="bottom" id="fec-QB-Rcs"/>
                                             <constraint firstItem="7hs-II-f53" firstAttribute="top" secondItem="0BJ-Vw-41c" secondAttribute="bottom" constant="15" id="gEQ-fz-WCM"/>
                                             <constraint firstItem="6OX-ei-wKy" firstAttribute="centerY" secondItem="7cx-IF-F6J" secondAttribute="centerY" id="hGa-n4-zZi"/>
                                             <constraint firstItem="HXR-q6-Fc0" firstAttribute="top" secondItem="9H8-fc-XAQ" secondAttribute="bottom" constant="15" id="hLd-ZN-WIT"/>
@@ -408,8 +408,8 @@
                                             <constraint firstItem="6OX-ei-wKy" firstAttribute="top" secondItem="DlE-hR-Kmv" secondAttribute="bottom" constant="20" id="n4R-AI-6yh"/>
                                             <constraint firstItem="22T-6Q-e4T" firstAttribute="leading" secondItem="kUd-8s-BP9" secondAttribute="leading" constant="10" id="npZ-dq-f4F"/>
                                             <constraint firstItem="uu5-7b-krO" firstAttribute="centerY" secondItem="3U0-Cc-kVx" secondAttribute="centerY" id="qh2-0F-hWI"/>
-                                            <constraint firstItem="7hs-II-f53" firstAttribute="centerY" secondItem="cAE-pQ-4Td" secondAttribute="centerY" id="rKO-3d-XWM"/>
                                             <constraint firstItem="xyP-IK-g9X" firstAttribute="centerX" secondItem="6OX-ei-wKy" secondAttribute="centerX" id="tnF-Rv-y6G"/>
+                                            <constraint firstItem="7hs-II-f53" firstAttribute="top" secondItem="cAE-pQ-4Td" secondAttribute="top" id="uKg-pE-caW"/>
                                             <constraint firstItem="kCQ-iA-lJr" firstAttribute="centerX" secondItem="cvZ-Kg-xuE" secondAttribute="centerX" id="wsU-cQ-v6P"/>
                                             <constraint firstItem="JHj-Wy-aTM" firstAttribute="trailing" secondItem="yb9-S1-eXK" secondAttribute="trailing" id="xmx-1m-9qX"/>
                                             <constraint firstItem="JHj-Wy-aTM" firstAttribute="top" secondItem="9H8-fc-XAQ" secondAttribute="bottom" constant="15" id="yoA-vN-bt1"/>
@@ -624,7 +624,7 @@
                                                     <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;dist&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpn-NW-dln">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;dist&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpn-NW-dln">
                                                     <rect key="frame" x="16.5" y="49" width="45" height="11.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44.5" id="jBD-fY-zPf"/>
@@ -700,7 +700,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2sw-Dj-cYY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="X6N-qZ-hkL" userLabel="Map"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="SXu-wP-es5">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="SXu-wP-es5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
@@ -730,7 +730,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gDN-Cw-zSr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="List" id="EXR-6a-kl1"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="nMH-L0-2cG">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="nMH-L0-2cG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -760,7 +760,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RAI-xa-Jvt" userLabel="Favorites" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" id="Dcg-XJ-TJw" userLabel="Favorites"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="01o-0Q-UzF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="01o-0Q-UzF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -784,7 +784,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vA6-J5-fpH" userLabel="Search" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" id="ef9-PQ-pLD" userLabel="Search"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="i98-cv-9ND">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="i98-cv-9ND">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -808,7 +808,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y40-I1-PEZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Check In" id="RAg-j2-wLo"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Mn0-bO-JZ8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Mn0-bO-JZ8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1160,6 +1160,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NWN-DA-lJr"/>
+        <segue reference="HkI-Md-TRa"/>
     </inferredMetricsTieBreakers>
 </document>

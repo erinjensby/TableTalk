@@ -51,6 +51,25 @@ class LocationDetails: UIViewController {
 
         // Do any additional setup after loading the view.
         self.title = "TableTalk"
+        if let place = self.place {
+            locName = place.name
+            var tempPhone = place.phoneNumber!
+            addr = place.formattedAddress!
+            website = place.website!.absoluteString
+        
+            print("name: \(locName), phone: \(tempPhone), addr: \(addr), website: \(website), open: \(place.openNowStatus.rawValue)")
+            
+            tempPhone.remove(at: tempPhone.startIndex)
+            tempPhone.remove(at: tempPhone.startIndex)
+            tempPhone.remove(at: tempPhone.startIndex)
+            phone = "("
+            phone.append(tempPhone)
+            let phoneRange = phone.index(phone.startIndex, offsetBy: 4)..<phone.index(phone.startIndex, offsetBy: 5)
+            phone.replaceSubrange(phoneRange, with: ") ")
+            let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
+            addr.removeSubrange(range)
+        }
+        
         locNameLbl.text = locName
         hrsLbl.text = hrs
         phoneLbl.text = phone
@@ -58,18 +77,16 @@ class LocationDetails: UIViewController {
         websiteLbl.text = website
         dscrpLbl.text = dscrp
         
-//        noiseLvl.text = noise
-//        tempLvl.text = temp
-//        if Int(table)! == 8 {
-//            tableNum.text = "8+"
-//        }
-//        else {
-//            tableNum.text = table
-//        }
-        
         changeTables()
         changeTemp()
         changeNoise()
+        
+        self.locNameLbl.adjustsFontSizeToFitWidth = true
+        self.hrsLbl.adjustsFontSizeToFitWidth = true
+        self.phoneLbl.adjustsFontSizeToFitWidth = true
+        self.addrLbl.adjustsFontSizeToFitWidth = true
+        self.websiteLbl.adjustsFontSizeToFitWidth = true
+        self.dscrpLbl.adjustsFontSizeToFitWidth = true
     }
 
     override func didReceiveMemoryWarning() {

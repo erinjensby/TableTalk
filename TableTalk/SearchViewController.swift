@@ -23,11 +23,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTableView: UITableView!
     
     func createLocationDictionary() {
-//        let locationIDs = StudyLocations.locationIDs
-//        var places = [GMSPlace]()
-        
         for locationID in StudyLocations.locationIDs {
-//            let locationID = locationIDs[i]
             placesClient.lookUpPlaceID(locationID, callback: { (place, error) -> Void in
                 if let error = error {
                     print("lookup place id query error: \(error.localizedDescription)")
@@ -43,15 +39,8 @@ class SearchViewController: UIViewController {
                                 print("Place name \(place.name)")
                                 print("Place address \(String(describing: place.formattedAddress))")
                                 print("Place placeID \(place.placeID)")
-                //                print("Place attributions \(String(describing: place.attributions))")
             })
         }
-//        
-//        for i in 0...locationIDs.count {
-//            let locationID = locationIDs[i]
-//            let place = places[i]
-//            locations[locationID] = place
-//        }
     }
     
     override func viewDidLoad() {
@@ -84,9 +73,11 @@ class SearchViewController: UIViewController {
         // Pass the selected object to the new view controller.
         
         if segue.identifier == "locDesc" {
-            
             if let destinationVC = segue.destination as? LocationDetails {
-                searchController.isActive = false
+                let row = (self.searchTableView.indexPathForSelectedRow?.row)!
+                let loc = self.searchLocations[row]
+                destinationVC.place = loc
+
                 var names:[String] = [String]()
                 names.append("Epoch Coffee")
                 names.append("24 / 7")
@@ -103,6 +94,8 @@ class SearchViewController: UIViewController {
                 let backButton = UIBarButtonItem()
                 backButton.title = "Search"
                 navigationItem.backBarButtonItem = backButton
+                
+                searchController.isActive = false
             }
         }
     }
@@ -121,10 +114,6 @@ extension SearchViewController: UISearchResultsUpdating {
                 return true
             }
             return false
-//            if location.lowercased().range(of: search.lowercased()) != nil {
-//                return true
-//            }
-//            return false
         }
         searchTableView.reloadData()
     }
@@ -147,7 +136,19 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         let location:GMSPlace = searchLocations[indexPath.row]
         cell?.locationLabel?.text = location.name
-        cell?.addrLabel?.text = location.formattedAddress!
+        var addr = location.formattedAddress!
+        let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
+        addr.removeSubrange(range)
+        cell?.addrLabel?.text = addr
+        let distance = calculateDistance(destination: location)
+        if distance >= 0 {
+            cell?.distLabel?.text = "\(Double(round(100*distance)/100)) mi"
+        }
+        else {
+            cell?.distLabel?.text = "n/a"
+        }
+//        cell?.distLabel?.text = 
+        
         setColor(rowNumber: indexPath.row, cell: cell, numRows: searchLocations.count)
         return cell!
     }
@@ -157,5 +158,40 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let alpha:CGFloat =
             (CGFloat(numRows - rowNumber)) * 0.8 / (CGFloat(numRows))
         cell?.backgroundColor = currentColor?.withAlphaComponent(CGFloat(alpha))
+    }
+    
+    func calculateDistance(destination: GMSPlace) -> Double {
+        var currentLocation:GMSPlace? = nil
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                var probability = placeLikelihoodList.likelihoods[0].likelihood
+                currentLocation = placeLikelihoodList.likelihoods[0].place
+                for likelihood in placeLikelihoodList.likelihoods {
+                    if probability < likelihood.likelihood {
+                        probability = likelihood.likelihood
+                        currentLocation = likelihood.place
+                    }
+                }
+            }
+        })
+        while currentLocation == nil {
+            wait()
+        }
+        if let location = currentLocation {
+            let currentCoordinates = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let destinationCoordinates = CLLocation(latitude: destination.coordinate.latitude, longitude: destination.coordinate.longitude)
+            let distance = destinationCoordinates.distance(from: currentCoordinates)
+            return distance / 1609.344
+        }
+        return -1
+    }
+    
+    func wait() {
+        RunLoop.current.run(mode: RunLoopMode.defaultRunLoopMode, before: NSDate(timeIntervalSinceNow: 1) as Date)
     }
 }
