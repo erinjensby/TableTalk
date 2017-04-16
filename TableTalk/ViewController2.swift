@@ -128,13 +128,13 @@ class ViewController2: UIViewController {
             }
             if let placeLikelihoodList = placeLikelihoodList {
                 for likelihood in placeLikelihoodList.likelihoods {
-                    self.place = likelihood.place
-                   
-                    print(self.place.name)
-                    print(self.place.placeID)
+                    let place2 = likelihood.place
+                   // self.place = likelihood.place
+                 
                     for locationID in StudyLocations.locationIDs {
-                        print(locationID)
-                        if self.place.placeID == locationID {
+                       
+                        if place2.placeID == locationID {
+                            self.place = likelihood.place
                             self.locationLbl.text = self.place.name
                             break;
                         }
