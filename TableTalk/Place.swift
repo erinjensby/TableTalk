@@ -11,13 +11,13 @@ import Foundation
 
 class Place{
     
-    public var name:String?
+    public var placeID:String?
     public var numTables:Int?
     public var temp:Int?
     public var noise:Int?
     
-    init(_name:String, _numTables:Int, _temp:Int, _noise:Int){
-        name = _name
+    init(_placeID:String, _numTables:Int, _temp:Int, _noise:Int){
+        placeID = _placeID
         numTables = _numTables
         temp = _temp
         noise = _noise
