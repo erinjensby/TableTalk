@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class LocationListViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var listCategory: UITextField!
     @IBOutlet weak var categoryPicker: UIPickerView!
+    
+    var placesClient: GMSPlacesClient!
     var places = [Place]()
     let sortStyle = ""
     
@@ -29,7 +32,7 @@ class LocationListViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+              // Do any additional setup after loading the view.
         initCategoryList()
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -39,6 +42,8 @@ class LocationListViewController: UIViewController{
         self.categoryPicker.isHidden = true
         self.listCategory.text = "Distance"
         places.sort { $0.numTables! > $1.numTables! }
+        
+        placesClient = GMSPlacesClient.shared()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +61,16 @@ class LocationListViewController: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+    
+        backItem.tintColor = UIColor.white
+        navigationItem.backBarButtonItem = backItem
+       
         
         if segue.identifier == "locDesc" {
+            
+            
             if let destinationVC = segue.destination as? LocationDetails {
                 var names:[String] = [String]()
                 names.append("Epoch Coffee")
@@ -156,7 +169,24 @@ extension LocationListViewController: UITableViewDelegate, UITableViewDataSource
         cell?.backgroundColor = UIColor(hex: 0x8888d7)
         
         // Configure the cell...
-        cell?.locationLabel.text = places[indexPath.row].name
+      //  cell?.locationLabel.text = places[indexPath.row].name
+        
+        let placeID = places[indexPath.row].placeID
+        
+        placesClient!.lookUpPlaceID(placeID!, callback: { (place, error) -> Void in
+           
+            
+            if let p = place {
+                cell?.locationLabel.text = p.name
+                var addr = p.formattedAddress!
+                let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
+                addr.removeSubrange(range)
+                cell?.addrLabel?.text = addr
+               
+            }
+        })
+        
+       
         
         setColor(rowNumber: indexPath.row, cell: cell, numRows: places.count)
         

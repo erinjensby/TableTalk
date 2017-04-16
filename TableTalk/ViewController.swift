@@ -109,7 +109,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let dict = snapshot.value as? NSDictionary
             
             for (key,value) in dict! {
-                var placeName = key as! String
+                var placeID = key as! String
                 
                 var noiseTotal = 0
                 var numTablesTotal = 0
@@ -140,7 +140,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 
              
                 //create place here
-                let tempPlace = Place(_name: placeName, _numTables: numTablesTotal/count, _temp: tempTotal/count, _noise: noiseTotal/count)
+                let tempPlace = Place(_placeID: placeID, _numTables: numTablesTotal/count, _temp: tempTotal/count, _noise: noiseTotal/count)
                 
                 
                 

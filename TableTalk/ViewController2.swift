@@ -15,7 +15,7 @@ class ViewController2: UIViewController {
     var placesClient: GMSPlacesClient!
     var ref: FIRDatabaseReference!
     var timer = Timer()
-
+    var place: GMSPlace!
 
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var numTablesLbl: UILabel!
@@ -93,9 +93,9 @@ class ViewController2: UIViewController {
         let timeStamp = dateFormatter.string(from: date)
         print(locationLbl.text!)
         
-        ref.child("Places").child(locationLbl.text!).child(timeStamp).child("Num Tables").setValue(Int(numTablesSlider.value))
-        ref.child("Places").child(locationLbl.text!).child(timeStamp).child("Temperature").setValue(Int(tempSlider.value))
-        ref.child("Places").child(locationLbl.text!).child(timeStamp).child("Noise").setValue(Int(loudnessSlider.value))
+        ref.child("Places").child(self.place.placeID).child(timeStamp).child("Num Tables").setValue(Int(numTablesSlider.value))
+        ref.child("Places").child(self.place.placeID).child(timeStamp).child("Temperature").setValue(Int(tempSlider.value))
+        ref.child("Places").child(self.place.placeID).child(timeStamp).child("Noise").setValue(Int(loudnessSlider.value))
         
     }
     
@@ -128,13 +128,14 @@ class ViewController2: UIViewController {
             }
             if let placeLikelihoodList = placeLikelihoodList {
                 for likelihood in placeLikelihoodList.likelihoods {
-                    let place = likelihood.place
-                    print(place.name)
-                    print(place.placeID)
+                    self.place = likelihood.place
+                   
+                    print(self.place.name)
+                    print(self.place.placeID)
                     for locationID in StudyLocations.locationIDs {
                         print(locationID)
-                        if place.placeID == locationID {
-                            self.locationLbl.text = place.name
+                        if self.place.placeID == locationID {
+                            self.locationLbl.text = self.place.name
                             break;
                         }
                     }
