@@ -10,8 +10,8 @@ import Foundation
 
 struct StudyLocations {
     
-//    static let locationNames:[String] = ["Epoch Coffee", "Monkey Nest Coffee", "GDC"]
+//    static let locationNames:[String] = ["Epoch Coffee", "Monkey Nest Coffee", "GDC", "Dominican Joe"]
     
-    static let locationIDs:[String] = ["ChIJG-gJw2vKRIYROWi2uwOp8QE", "ChIJ0zs2zVjKRIYRuP3X3KCjGOM", "ChIJcTd6n5y1RIYRwfBnY4RaTqU"]
+    static let locationIDs:[String] = ["ChIJG-gJw2vKRIYROWi2uwOp8QE", "ChIJ0zs2zVjKRIYRuP3X3KCjGOM", "ChIJcTd6n5y1RIYRwfBnY4RaTqU", "ChIJfXjCewG1RIYRkyETlatoYKQ"]
     
 }
