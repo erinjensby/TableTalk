@@ -18,27 +18,6 @@ class SearchViewController: UIViewController {
     var placesClient: GMSPlacesClient!
     @IBOutlet weak var searchTableView: UITableView!
     
-    func createLocationDictionary() {
-        for locationID in StudyLocations.locationIDs {
-            placesClient.lookUpPlaceID(locationID, callback: { (place, error) -> Void in
-                if let error = error {
-                    print("lookup place id query error: \(error.localizedDescription)")
-                    return
-                }
-                
-                guard let place = place else {
-                    print("No place details for \(locationID)")
-                    return
-                }
-                
-                self.locations.append(place)
-                                print("Place name \(place.name)")
-                                print("Place address \(String(describing: place.formattedAddress))")
-                                print("Place placeID \(place.placeID)")
-            })
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,8 +34,6 @@ class SearchViewController: UIViewController {
         searchTableView.dataSource = self
         
         placesClient = GMSPlacesClient.shared()
-        
-        createLocationDictionary()
     }
 
     override func didReceiveMemoryWarning() {

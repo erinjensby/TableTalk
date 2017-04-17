@@ -36,7 +36,6 @@ class LocationDetails: UIViewController {
     @IBOutlet weak var tablesWhiteWidth: NSLayoutConstraint!
     @IBOutlet weak var tablesWhiteHeight: NSLayoutConstraint!
     
-//    var place:GMSPlace?
     var location:Place?
     
     var locName:String = "<location name>"
@@ -77,7 +76,6 @@ class LocationDetails: UIViewController {
             else {
                 website = "n/a"
             }
-//            website = place.website!.absoluteString
             
             print("name: \(locName), phone: \(phone), addr: \(addr), website: \(website), open: \(place.openNowStatus.rawValue)")
             
@@ -122,9 +120,6 @@ class LocationDetails: UIViewController {
         addr = nameList[3]
         website = nameList[4]
         dscrp = nameList[5]
-//        noise = nameList[6]
-//        temp = nameList[7]
-//        table = nameList[8]
     }
     
     func changeTables() {

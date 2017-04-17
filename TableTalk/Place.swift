@@ -30,7 +30,4 @@ class Place{
         address = _addr
         pObj = _pObj
     }
-    
-    
-    
 }

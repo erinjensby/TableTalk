@@ -18,7 +18,6 @@ class LocationListViewController: UIViewController{
     var placesClient: GMSPlacesClient!
     var places = [Place]()
     
-    
     var categoryList:[String] = [String]()
     
     func initCategoryList() {
@@ -32,7 +31,7 @@ class LocationListViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-              // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
         initCategoryList()
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -66,11 +65,8 @@ class LocationListViewController: UIViewController{
     
         backItem.tintColor = UIColor.white
         navigationItem.backBarButtonItem = backItem
-       
         
         if segue.identifier == "locDesc" {
-            
-            
             if let destinationVC = segue.destination as? LocationDetails {
                 let row = (self.tableView.indexPathForSelectedRow?.row)!
                 let loc = self.places[row]
@@ -156,11 +152,10 @@ extension LocationListViewController: UITableViewDelegate, UITableViewDataSource
         let roundDist = Double(round(10*dist!)/10)
         let addr = places[indexPath.row].address
         
-                cell?.locationLabel.text = name
-                cell?.distLabel.text = "\(roundDist) mi"
-                cell?.addrLabel.text = addr
+        cell?.locationLabel.text = name
+        cell?.distLabel.text = "\(roundDist) mi"
+        cell?.addrLabel.text = addr
         
-          
         setColor(rowNumber: indexPath.row, cell: cell, numRows: places.count)
         
         return cell!

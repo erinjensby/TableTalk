@@ -28,7 +28,6 @@ class FavoritesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -39,27 +38,21 @@ class FavoritesViewController: UIViewController {
     }
     */
 }
-    extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
+extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource{
         
-         func numberOfSections(in tableView: UITableView) -> Int {
-            // #warning Incomplete implementation, return the number of sections
-            return 1
-        }
-        
-         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            // #warning Incomplete implementation, return the number of rows
-            return 8
-        }
-        
-         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "locationID", for: indexPath)
-          
-            
-            
-            return cell
-        }
-
-        
-        
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
     }
+        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 8
+    }
+        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locationID", for: indexPath)
+        return cell
+    }
+}
 
