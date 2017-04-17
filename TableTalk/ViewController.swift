@@ -86,6 +86,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         ref = FIRDatabase.database().reference()
         placesClient = GMSPlacesClient.shared()
         buildPlaceArray()
@@ -101,6 +104,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func buildPlaceArray(){

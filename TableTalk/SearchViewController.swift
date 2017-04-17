@@ -160,27 +160,35 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func calculateDistance(destination: GMSPlace) -> Double {
-        var currentLocation:GMSPlace? = nil
-        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
+        var currentLocation:CLLocation?
+        
+        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
             
-            if let placeLikelihoodList = placeLikelihoodList {
-                var probability = placeLikelihoodList.likelihoods[0].likelihood
-                currentLocation = placeLikelihoodList.likelihoods[0].place
-                for likelihood in placeLikelihoodList.likelihoods {
-                    if probability < likelihood.likelihood {
-                        probability = likelihood.likelihood
-                        currentLocation = likelihood.place
-                    }
-                }
-            }
-        })
-        while currentLocation == nil {
-            wait()
+            currentLocation = CLLocationManager().location
+            
         }
+//        var currentLocation:GMSPlace? = nil
+//        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+//            if let error = error {
+//                print("Pick Place error: \(error.localizedDescription)")
+//                return
+//            }
+//            
+//            if let placeLikelihoodList = placeLikelihoodList {
+//                var probability = placeLikelihoodList.likelihoods[0].likelihood
+//                currentLocation = placeLikelihoodList.likelihoods[0].place
+//                for likelihood in placeLikelihoodList.likelihoods {
+//                    if probability < likelihood.likelihood {
+//                        probability = likelihood.likelihood
+//                        currentLocation = likelihood.place
+//                    }
+//                }
+//            }
+//        })
+//        while currentLocation == nil {
+//            wait()
+//        }
         if let location = currentLocation {
             let currentCoordinates = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let destinationCoordinates = CLLocation(latitude: destination.coordinate.latitude, longitude: destination.coordinate.longitude)
@@ -190,7 +198,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         return -1
     }
     
-    func wait() {
-        RunLoop.current.run(mode: RunLoopMode.defaultRunLoopMode, before: NSDate(timeIntervalSinceNow: 1) as Date)
-    }
+//    func wait() {
+//        RunLoop.current.run(mode: RunLoopMode.defaultRunLoopMode, before: NSDate(timeIntervalSinceNow: 1) as Date)
+//    }
 }
