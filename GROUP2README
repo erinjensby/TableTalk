@@ -1,0 +1,39 @@
+﻿Implementation Contributions:
+Erin Jensby:                33.3%
+* Implement Google Maps API for map view
+* Implement Google Places API to show current location in Survey
+* Dismiss keyboards
+* Created array of Study Locations and synced it with firebase
+
+
+Nicolas Lavigne:        33.3%
+* Implement pulling and pushing information to Firebase
+* Sort locations by different criteria
+* Create class that will store data received from Google Places API as well as Firebase
+* Icons for TabBar
+
+
+Patrick Liu:                33.3%
+* Implement majority of constraints in storyboard
+* Add search by name functionality
+* Pull more details to fill in location table cells from GMSPlace locations
+* Fill in location description using GMSPlace objects
+
+
+Grading Level:
+100% for all members
+
+
+Differences:
+Settings screen not implemented.
+Favorites not implemented.
+Search based on criteria is actually show based on criteria while searching is by location name.
+
+
+Special Instructions:
+Since our app uses the latest version of cocoa pods, you need to open up the TableTalk.xcworkspace NOT TableTalk.xcodeproj to launch the app.
+To create an account, the email and password needs to be in the correct text fields before pressing the create account button.
+Test account:
+Username: abchh@gmail.com        
+Password: test123
+Login errors show up in the xcode console with “ERROR”.
