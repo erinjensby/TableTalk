@@ -19,9 +19,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var ref: FIRDatabaseReference!
     
     var places = [Place]()
-    
     var placesClient: GMSPlacesClient!
-    
 
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -43,9 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 let vc:TabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyTabBar") as! TabBarController
                 
                 vc.places=self.places
-                
                 self.present(vc, animated: true, completion: nil)
-               
             }
             else {
                 // Error: check error and show message
@@ -71,7 +67,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     print("Ok Button Pressed 1");
                 }
                 self.alertController!.addAction(OKAction)
-                
                 UIApplication.shared.keyWindow?.rootViewController?.present(self.alertController!, animated: true, completion:nil)
             }
         })
@@ -91,8 +86,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         ref = FIRDatabase.database().reference()
         placesClient = GMSPlacesClient.shared()
         buildPlaceArray()
-        
-       UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        print("after buildPlaceArray")
+     
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         // Do any additional setup after loading the view, typically from a nib.
         locationManager.delegate = self
@@ -107,6 +104,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func buildPlaceArray(){
         
+        // Use only when updating firebase from locationIDs array
+//        for placeID in StudyLocations.locationIDs {
+//            let date = Date()
+//            
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "MMM dd HH:mm:ss"
+//            let timeStamp = dateFormatter.string(from: date)
+//            
+//            ref.child("Places").child(placeID).child(timeStamp).child("Num Tables").setValue(3)
+//            ref.child("Places").child(placeID).child(timeStamp).child("Temperature").setValue(3)
+//            ref.child("Places").child(placeID).child(timeStamp).child("Noise").setValue(3)
+//        }
+        
         ref.child("Places").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let dict = snapshot.value as? NSDictionary
@@ -118,7 +128,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 var numTablesTotal = 0
                 var tempTotal = 0
                 var count = 0
-                for(key2,value2) in (value as? NSDictionary)!{
+                for(_,value2) in (value as? NSDictionary)!{
                     count+=1
                     for(key3,value3) in (value2 as? NSDictionary)!{
                         if(key3 as? String == "Noise"){
@@ -132,6 +142,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         }
                     }
                 }
+
                 var currentLocation:CLLocation?
                 if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
                     CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){

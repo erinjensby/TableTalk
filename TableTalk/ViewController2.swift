@@ -96,7 +96,6 @@ class ViewController2: UIViewController {
         ref.child("Places").child(self.place.placeID).child(timeStamp).child("Num Tables").setValue(Int(numTablesSlider.value))
         ref.child("Places").child(self.place.placeID).child(timeStamp).child("Temperature").setValue(Int(tempSlider.value))
         ref.child("Places").child(self.place.placeID).child(timeStamp).child("Noise").setValue(Int(loudnessSlider.value))
-        
     }
     
     func timerAction() {
@@ -126,11 +125,11 @@ class ViewController2: UIViewController {
                 print("Pick Place error: \(error.localizedDescription)")
                 return
             }
+            
             if let placeLikelihoodList = placeLikelihoodList {
                 for likelihood in placeLikelihoodList.likelihoods {
+                    
                     let place2 = likelihood.place
-                   // self.place = likelihood.place
-                 
                     for locationID in StudyLocations.locationIDs {
                        
                         if place2.placeID == locationID {
