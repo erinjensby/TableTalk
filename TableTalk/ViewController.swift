@@ -14,7 +14,7 @@ import CoreLocation
 import FirebaseDatabase
 import GooglePlaces
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
     var ref: FIRDatabaseReference!
     
@@ -96,6 +96,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        
+        self.passField.delegate = self
+        self.emailField.delegate = self
     }
     
     func dismissKeyboard() {
@@ -183,6 +186,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
 
