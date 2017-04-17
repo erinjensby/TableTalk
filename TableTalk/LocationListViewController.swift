@@ -41,7 +41,7 @@ class LocationListViewController: UIViewController{
         self.categoryPicker.dataSource = self
         self.categoryPicker.isHidden = true
         self.listCategory.text = "Distance"
-        places.sort { $0.dist! > $1.dist! }
+        places.sort { $0.dist! < $1.dist! }
         
         placesClient = GMSPlacesClient.shared()
     }
@@ -110,16 +110,16 @@ extension LocationListViewController: UIPickerViewDelegate, UIPickerViewDataSour
         self.categoryPicker.isHidden = true
         
         if(self.listCategory.text == "Distance"){
-            places.sort { $0.dist! > $1.dist! }
+            places.sort { $0.dist! < $1.dist! }
         }
         if(self.listCategory.text == "Temperature"){
-            places.sort { $0.temp! > $1.temp! }
+            places.sort { $0.temp! < $1.temp! }
         }
         if(self.listCategory.text == "Open Tables"){
-            places.sort { $0.numTables! > $1.numTables! }
+            places.sort { $0.numTables! < $1.numTables! }
         }
         if(self.listCategory.text == "Noise"){
-            places.sort { $0.noise! > $1.noise! }
+            places.sort { $0.noise! < $1.noise! }
         }
         self.tableView.reloadData()
 //        UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveLinear,
