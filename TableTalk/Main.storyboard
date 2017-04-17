@@ -676,7 +676,7 @@
             </objects>
             <point key="canvasLocation" x="3293.5999999999999" y="1244.527736131934"/>
         </scene>
-        <!--Google Map View-->
+        <!--TableTalk-->
         <scene sceneID="qYI-0I-0go">
             <objects>
                 <viewController id="EFt-XN-I5g" customClass="GoogleMapView" customModule="TableTalk" customModuleProvider="target" sceneMemberID="viewController">
@@ -689,7 +689,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="i6I-iM-JBM"/>
+                    <navigationItem key="navigationItem" title="TableTalk" id="i6I-iM-JBM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cuH-lB-xtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
