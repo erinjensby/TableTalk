@@ -72,17 +72,10 @@ class LocationListViewController: UIViewController{
             
             
             if let destinationVC = segue.destination as? LocationDetails {
-                var names:[String] = [String]()
-                names.append("Epoch Coffee")
-                names.append("24 / 7")
-                names.append("(512) 454-3762")
-                names.append("221 W N Loop Blvd Austin, TX 78751")
-                names.append("epochcoffee.com")
-                names.append("24/7 coffee shop vending espresso drinks, sweets & pizza from East Side Pies in open, casual space.")
-                names.append("2")
-                names.append("3")
-                names.append("8")
-                destinationVC.setNames(nameList: names)
+                let row = (self.tableView.indexPathForSelectedRow?.row)!
+                let loc = self.places[row]
+                destinationVC.location = loc
+                
                 let backButton = UIBarButtonItem()
                 backButton.title = "List"
                 navigationItem.backBarButtonItem = backButton
@@ -122,17 +115,6 @@ extension LocationListViewController: UIPickerViewDelegate, UIPickerViewDataSour
             places.sort { $0.noise! < $1.noise! }
         }
         self.tableView.reloadData()
-//        UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveLinear,
-//                       animations: {
-//                        self.categoryPicker.frame.origin.y += 100
-//                        var frame = self.tableView.frame
-//                        frame.origin.y -= 100
-//                        self.tableView.frame = frame
-//        }, completion: nil)
-//        var frame = self.tableView.frame
-//        frame.origin.y -= 100
-//        self.tableView.frame = frame
-//        self.tableView.frame.origin
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
@@ -145,22 +127,7 @@ extension LocationListViewController: UIPickerViewDelegate, UIPickerViewDataSour
         if textField == self.listCategory {
             self.categoryPicker.isHidden = false
             textField.endEditing(true)
-//            var frame = self.tableView.frame
-//            frame.origin.y += 100
-//            self.tableView.frame = frame
-//            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveLinear,
-//                           animations: {
-//                            self.categoryPicker.frame.origin.y -= 100
-//                            var frame = self.tableView.frame
-//                            frame.origin.y += 100
-//                            self.tableView.frame = frame
-//            }, completion: nil)
         }
-//    if textField == self.listCategory {
-//    self.categoryPicker.isHidden = false
-//
-//    textField.endEditing(true)
-//    }
     }
 }
 
@@ -182,7 +149,6 @@ extension LocationListViewController: UITableViewDelegate, UITableViewDataSource
         cell?.backgroundColor = UIColor(hex: 0x8888d7)
         
         // Configure the cell...
-      //  cell?.locationLabel.text = places[indexPath.row].name
         
         let placeID = places[indexPath.row].placeID
         let name = places[indexPath.row].placeName

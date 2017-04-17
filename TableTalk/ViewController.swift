@@ -52,7 +52,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 print("ERROR")
             }
         })
-        
         loginButton.backgroundColor = UIColor.lightGray
     }
     
@@ -93,11 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         placesClient = GMSPlacesClient.shared()
         buildPlaceArray()
         
-        print("after method")
-     
-        
        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-       
         
         // Do any additional setup after loading the view, typically from a nib.
         locationManager.delegate = self
@@ -112,14 +107,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func buildPlaceArray(){
         
-        
-        
         ref.child("Places").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let dict = snapshot.value as? NSDictionary
             
             for (key,value) in dict! {
-                var placeID = key as! String
+                let placeID = key as! String
                 
                 var noiseTotal = 0
                 var numTablesTotal = 0
@@ -127,44 +120,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 var count = 0
                 for(key2,value2) in (value as? NSDictionary)!{
                     count+=1
-                    
-                    
                     for(key3,value3) in (value2 as? NSDictionary)!{
-                        
                         if(key3 as? String == "Noise"){
                             noiseTotal+=value3 as! Int
                         }
-                        
                         if(key3 as? String  == "Num Tables"){
                             numTablesTotal+=value3 as! Int
                         }
-                        
                         if(key3 as? String == "Temperature"){
                             tempTotal+=value3 as! Int
                         }
-                        
-                        
-                        
                     }
                 }
-                //destination: GMSPlace
                 var currentLocation:CLLocation?
-                
                 if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
                     CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
-                    
                     currentLocation = CLLocationManager().location
-                    
                 }
                 
                 var distance: Double = 0
                 self.placesClient!.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
-                    
-                    
                     if let destination = place {
-                       
                         if let location = currentLocation {
-                            
                             
                             let currentCoordinates = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
                             let destinationCoordinates = CLLocation(latitude: destination.coordinate.latitude, longitude: destination.coordinate.longitude)
@@ -176,51 +153,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                             let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
                             addr.removeSubrange(range)
                             
-                            
                             self.postData(placeID: placeID, numTables: numTablesTotal/count, temp: tempTotal/count, noise: noiseTotal/count, dist: distance, placeName: destination.name, addr: addr, pObj: destination)
                         }
                     }
                 })
-               
-                
-                
-             
-                
-                
-                
-                
-                
             }
-            
-            // ...
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-          
-
         })
-    
     }
     
     func postData( placeID:String, numTables:Int, temp:Int, noise: Int, dist:Double, placeName:String, addr:String, pObj:GMSPlace){
         
         let tempPlace = Place(_placeID: placeID, _numTables: numTables, _temp: temp, _noise: noise, _dist: dist, _placeName: placeName, _addr: addr, _pObj: pObj)
         
-        
-        
         self.places.append(tempPlace)
-
-        print("TEST \(places.count)")
-        print("TEST DISTANCE \(places[0].dist)")
-        print("TEST DISTANCE \(places[0].placeName)")
-      
-        
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

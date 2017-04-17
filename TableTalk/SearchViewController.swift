@@ -14,12 +14,7 @@ class SearchViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     var places:[Place] = [Place]()
     var locations:[GMSPlace] = [GMSPlace]()
-//    var locations:Dictionary<String, GMSPlace> = Dictionary<String, GMSPlace>()
-//    var locations:Dictionary<String, String> = Dictionary<String, String>()
-//    var locations:[String]
-//    var allLocations:[String] = ["Epoch Coffee", "E"]
     var searchLocations:[Place] = [Place]()
-//    var searchedLocations:
     var placesClient: GMSPlacesClient!
     @IBOutlet weak var searchTableView: UITableView!
     
@@ -77,20 +72,7 @@ class SearchViewController: UIViewController {
             if let destinationVC = segue.destination as? LocationDetails {
                 let row = (self.searchTableView.indexPathForSelectedRow?.row)!
                 let loc = self.searchLocations[row]
-//                destinationVC.place = loc.pObj!
                 destinationVC.location = loc
-
-                var names:[String] = [String]()
-                names.append("Epoch Coffee")
-                names.append("24 / 7")
-                names.append("(512) 454-3762")
-                names.append("221 W N Loop Blvd Austin, TX 78751")
-                names.append("epochcoffee.com")
-                names.append("24/7 coffee shop vending espresso drinks, sweets & pizza from East Side Pies in open, casual space.")
-                names.append("2")
-                names.append("3")
-                names.append("8")
-                destinationVC.setNames(nameList: names)
                 
                 self.searchController.searchBar.endEditing(true)
                 let backButton = UIBarButtonItem()
@@ -171,27 +153,6 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
             currentLocation = CLLocationManager().location
             
         }
-//        var currentLocation:GMSPlace? = nil
-//        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-//            if let error = error {
-//                print("Pick Place error: \(error.localizedDescription)")
-//                return
-//            }
-//            
-//            if let placeLikelihoodList = placeLikelihoodList {
-//                var probability = placeLikelihoodList.likelihoods[0].likelihood
-//                currentLocation = placeLikelihoodList.likelihoods[0].place
-//                for likelihood in placeLikelihoodList.likelihoods {
-//                    if probability < likelihood.likelihood {
-//                        probability = likelihood.likelihood
-//                        currentLocation = likelihood.place
-//                    }
-//                }
-//            }
-//        })
-//        while currentLocation == nil {
-//            wait()
-//        }
         if let location = currentLocation {
             let currentCoordinates = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let destinationCoordinates = CLLocation(latitude: destination.coordinate.latitude, longitude: destination.coordinate.longitude)
@@ -200,8 +161,4 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return -1
     }
-    
-//    func wait() {
-//        RunLoop.current.run(mode: RunLoopMode.defaultRunLoopMode, before: NSDate(timeIntervalSinceNow: 1) as Date)
-//    }
 }
