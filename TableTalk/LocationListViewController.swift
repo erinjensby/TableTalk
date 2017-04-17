@@ -116,7 +116,7 @@ extension LocationListViewController: UIPickerViewDelegate, UIPickerViewDataSour
             places.sort { $0.temp! < $1.temp! }
         }
         if(self.listCategory.text == "Open Tables"){
-            places.sort { $0.numTables! < $1.numTables! }
+            places.sort { $0.numTables! > $1.numTables! }
         }
         if(self.listCategory.text == "Noise"){
             places.sort { $0.noise! < $1.noise! }
