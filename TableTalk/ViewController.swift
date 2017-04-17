@@ -12,12 +12,15 @@ import FirebaseAuth
 import MapKit
 import CoreLocation
 import FirebaseDatabase
+import GooglePlaces
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var ref: FIRDatabaseReference!
     
     var places = [Place]()
+    
+    var placesClient: GMSPlacesClient!
     
 
     @IBOutlet weak var passField: UITextField!
@@ -84,7 +87,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
-        
+        placesClient = GMSPlacesClient.shared()
         buildPlaceArray()
         
         print("after method")
@@ -137,16 +140,44 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         
                     }
                 }
+                //destination: GMSPlace
+                var currentLocation:CLLocation?
+                
+                if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse ||
+                    CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+                    
+                    currentLocation = CLLocationManager().location
+                    
+                }
+                
+                var distance: Double = 0
+                self.placesClient!.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
+                    
+                    
+                    if let destination = place {
+                       
+                        if let location = currentLocation {
+                            
+                            
+                            let currentCoordinates = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                            let destinationCoordinates = CLLocation(latitude: destination.coordinate.latitude, longitude: destination.coordinate.longitude)
+                             distance = destinationCoordinates.distance(from: currentCoordinates)
+                            
+                             distance = distance / 1609.344
+                            
+                            var addr = destination.formattedAddress!
+                            let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
+                            addr.removeSubrange(range)
+                            
+                            
+                            self.postData(placeID: placeID, numTables: numTablesTotal/count, temp: tempTotal/count, noise: noiseTotal/count, dist: distance, placeName: destination.name, addr: addr, pObj: destination)
+                        }
+                    }
+                })
+               
+                
                 
              
-                //create place here
-                let tempPlace = Place(_placeID: placeID, _numTables: numTablesTotal/count, _temp: tempTotal/count, _noise: noiseTotal/count)
-                
-                
-                
-                self.places.append(tempPlace)
-               print("In the method")
-
                 
                 
                 
@@ -156,14 +187,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             // ...
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.postData()
+          
 
         })
     
     }
     
-    func postData(){
+    func postData( placeID:String, numTables:Int, temp:Int, noise: Int, dist:Double, placeName:String, addr:String, pObj:GMSPlace){
+        
+        let tempPlace = Place(_placeID: placeID, _numTables: numTables, _temp: temp, _noise: noise, _dist: dist, _placeName: placeName, _addr: addr, _pObj: pObj)
+        
+        
+        
+        self.places.append(tempPlace)
+
         print("TEST \(places.count)")
+        print("TEST DISTANCE \(places[0].dist)")
+        print("TEST DISTANCE \(places[0].placeName)")
       
         
 
