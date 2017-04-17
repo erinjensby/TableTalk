@@ -23,6 +23,10 @@ class TabBarController: UITabBarController {
         
         listViewController.places = self.places
         
+        let fourthTab = self.viewControllers?[3] as! UINavigationController
+        let searchViewController = fourthTab.viewControllers[0] as! SearchViewController
+        searchViewController.places = self.places
+        
         self.tabBar.items?[0].image = UIImage(named: "compass")?.withRenderingMode(.alwaysOriginal)
        
         self.tabBar.items?[0].selectedImage = UIImage(named: "compassSelected")?.withRenderingMode(.alwaysOriginal)

@@ -12,12 +12,13 @@ import GooglePlaces
 class SearchViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
+    var places:[Place] = [Place]()
     var locations:[GMSPlace] = [GMSPlace]()
 //    var locations:Dictionary<String, GMSPlace> = Dictionary<String, GMSPlace>()
 //    var locations:Dictionary<String, String> = Dictionary<String, String>()
 //    var locations:[String]
-    var allLocations:[String] = ["Epoch Coffee", "E"]
-    var searchLocations:[GMSPlace] = [GMSPlace]()
+//    var allLocations:[String] = ["Epoch Coffee", "E"]
+    var searchLocations:[Place] = [Place]()
 //    var searchedLocations:
     var placesClient: GMSPlacesClient!
     @IBOutlet weak var searchTableView: UITableView!
@@ -76,7 +77,8 @@ class SearchViewController: UIViewController {
             if let destinationVC = segue.destination as? LocationDetails {
                 let row = (self.searchTableView.indexPathForSelectedRow?.row)!
                 let loc = self.searchLocations[row]
-                destinationVC.place = loc
+//                destinationVC.place = loc.pObj!
+                destinationVC.location = loc
 
                 var names:[String] = [String]()
                 names.append("Epoch Coffee")
@@ -108,8 +110,8 @@ extension SearchViewController: UISearchResultsUpdating {
     }
     
     func searchForResult(search: String, scope: String = "All") {
-        searchLocations = locations.filter {(location) in
-            let locationName = location.name
+        searchLocations = places.filter {(location) in
+            let locationName = location.placeName!
             if locationName.lowercased().range(of: search.lowercased()) != nil {
                 return true
             }
@@ -134,13 +136,14 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell?.backgroundColor = UIColor(hex: 0x8888d7)
         
-        let location:GMSPlace = searchLocations[indexPath.row]
-        cell?.locationLabel?.text = location.name
-        var addr = location.formattedAddress!
+        let location:Place = searchLocations[indexPath.row]
+        let gmsLocation:GMSPlace = location.pObj!
+        cell?.locationLabel?.text = gmsLocation.name
+        var addr = gmsLocation.formattedAddress!
         let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
         addr.removeSubrange(range)
         cell?.addrLabel?.text = addr
-        let distance = calculateDistance(destination: location)
+        let distance = calculateDistance(destination: gmsLocation)
         if distance >= 0 {
             cell?.distLabel?.text = "\(Double(round(10*distance)/10)) mi"
         }

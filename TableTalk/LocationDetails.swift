@@ -36,7 +36,8 @@ class LocationDetails: UIViewController {
     @IBOutlet weak var tablesWhiteWidth: NSLayoutConstraint!
     @IBOutlet weak var tablesWhiteHeight: NSLayoutConstraint!
     
-    var place:GMSPlace?
+//    var place:GMSPlace?
+    var location:Place?
     
     var locName:String = "<location name>"
     var hrs:String = "<hours>"
@@ -53,24 +54,25 @@ class LocationDetails: UIViewController {
 
         // Do any additional setup after loading the view.
         self.title = "TableTalk"
-        if let place = self.place {
-            locName = place.name
-            var tempPhone = place.phoneNumber!
+        if let location = self.location {
+            let place = location.pObj!
+            if var tempPhone = place.phoneNumber {
+                tempPhone.remove(at: tempPhone.startIndex)
+                tempPhone.remove(at: tempPhone.startIndex)
+                tempPhone.remove(at: tempPhone.startIndex)
+                phone = "("
+                phone.append(tempPhone)
+                let phoneRange = phone.index(phone.startIndex, offsetBy: 4)..<phone.index(phone.startIndex, offsetBy: 5)
+                phone.replaceSubrange(phoneRange, with: ") ")
+            }
             addr = place.formattedAddress!
             website = place.website!.absoluteString
-        
-            print("name: \(locName), phone: \(tempPhone), addr: \(addr), website: \(website), open: \(place.openNowStatus.rawValue)")
+                
+            print("name: \(locName), phone: \(phone), addr: \(addr), website: \(website), open: \(place.openNowStatus.rawValue)")
             
-            tempPhone.remove(at: tempPhone.startIndex)
-            tempPhone.remove(at: tempPhone.startIndex)
-            tempPhone.remove(at: tempPhone.startIndex)
-            phone = "("
-            phone.append(tempPhone)
-            let phoneRange = phone.index(phone.startIndex, offsetBy: 4)..<phone.index(phone.startIndex, offsetBy: 5)
-            phone.replaceSubrange(phoneRange, with: ") ")
             let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
             addr.removeSubrange(range)
-            
+
             loadFirstPhotoForPlace(placeID: place.placeID)
         }
         
