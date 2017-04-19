@@ -77,6 +77,12 @@ class ViewController2: UIViewController {
     }
     
     @IBAction func submitData(_ sender: Any) {
+        if (locationLbl.text?.lowercased().contains("<location>")) != nil {
+            let submitAlert = UIAlertController(title: "", message: "You are not currently at a study location.", preferredStyle: UIAlertControllerStyle.alert)
+            submitAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(submitAlert, animated: true, completion: nil)
+            return
+        }
         submitButton.isUserInteractionEnabled = false
         submitButton.alpha = 0.6
         timer.invalidate()
