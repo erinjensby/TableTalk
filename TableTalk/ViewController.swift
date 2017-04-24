@@ -40,11 +40,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
                 
                 let vc:TabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyTabBar") as! TabBarController
                 
-                vc.places=self.places
+                vc.places = self.places
                 self.present(vc, animated: true, completion: nil)
             }
             else {
                 // Error: check error and show message
+                let error = UIAlertController(title: "", message: "Incorrect username or password", preferredStyle: UIAlertControllerStyle.alert)
+                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                error.addAction(OKAction)
+                self.present(error, animated: true, completion: nil)
                 print("ERROR")
             }
         })
@@ -52,25 +56,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     @IBAction func createNewUser(_ sender: Any) {
-        FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passField.text!, completion: { (user, error) in
-            
-            // Check that user isn't nil
-            if let u = user {
-                // User is found, go to home screen
-                print(u.email!)
-            }
-            else {
-                let message = "You must enter a valid email address and password."
-                self.alertController = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
-                
-                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                    print("Ok Button Pressed 1");
-                }
-                self.alertController!.addAction(OKAction)
-                UIApplication.shared.keyWindow?.rootViewController?.present(self.alertController!, animated: true, completion:nil)
-            }
-        })
-        
+//        FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passField.text!, completion: { (user, error) in
+//            
+//            // Check that user isn't nil
+//            if let u = user {
+//                // User is found, go to home screen
+//                print(u.email!)
+//            }
+//            else {
+//                let message = "You must enter a valid email address and password."
+//                self.alertController = UIAlertController(title: "Warning", message: message, preferredStyle: UIAlertControllerStyle.alert)
+//                
+//                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+//                    print("Ok Button Pressed 1");
+//                }
+//                self.alertController!.addAction(OKAction)
+//                UIApplication.shared.keyWindow?.rootViewController?.present(self.alertController!, animated: true, completion:nil)
+//            }
+//        }) 
     }
     
     @IBAction func touchDown(_ sender: Any) {
@@ -85,7 +88,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         ref = FIRDatabase.database().reference()
         placesClient = GMSPlacesClient.shared()
-        buildPlaceArray()
+//        buildPlaceArray()
 
         print("after buildPlaceArray")
      
@@ -191,6 +194,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let destinationVC = segue.destination as? SignUpViewController {
+            destinationVC.places = self.places
+        }
     }
 }
 

@@ -12,9 +12,9 @@ import GooglePlaces
 class SearchViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
-    var places:[Place] = [Place]()
-    var locations:[GMSPlace] = [GMSPlace]()
-    var searchLocations:[Place] = [Place]()
+    var places: [Place] = [Place]()
+    var locations: [GMSPlace] = [GMSPlace]()
+    var searchLocations: [Place] = [Place]()
     var placesClient: GMSPlacesClient!
     @IBOutlet weak var searchTableView: UITableView!
     
@@ -95,8 +95,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell?.backgroundColor = UIColor(hex: 0x8888d7)
         
-        let location:Place = searchLocations[indexPath.row]
-        let gmsLocation:GMSPlace = location.pObj!
+        let location: Place = searchLocations[indexPath.row]
+        let gmsLocation: GMSPlace = location.pObj!
         cell?.locationLabel?.text = gmsLocation.name
         var addr = gmsLocation.formattedAddress!
         let range = addr.index(addr.endIndex, offsetBy: -5)..<addr.endIndex
@@ -116,7 +116,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func setColor(rowNumber: Int, cell: LocationCell?, numRows: Int) {
         let currentColor = cell?.backgroundColor
-        let alpha:CGFloat =
+        let alpha: CGFloat =
             (CGFloat(numRows - rowNumber)) * 0.8 / (CGFloat(numRows))
         cell?.backgroundColor = currentColor?.withAlphaComponent(CGFloat(alpha))
     }
